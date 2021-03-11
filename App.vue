@@ -213,67 +213,198 @@
   <div v-if="currentstep === 3">
     <form class="ml-16 px-11">
       <div>
-        <label>Please sector Sector</label>
-        <select class="rounded border-black border h-8 w-7/12 mt-4 ml-14">
-          <option selected value="1">Private</option>
-          <option value="2">Federal</option>
-          <option value="3">State</option>
-          <option value="4">Cross-border</option>
-          <option value="5">Others</option>
+        <label>Select Sector</label>
+        <select class="rounded border-black border h-8 w-7/12 mt-4 ml-14" v-model="registration.sector">
+          <option>Select Sector</option>
+          <option>Private</option>
+          <option>Federal</option>
+          <option>State</option>
         </select>
       </div>
-      <div >
-        <label class="mr-2">Service ID No(Police/Paramilitary)</label>
-        <input class="rounded border-black border h-8 w-7/12 mt-4 ml-28" type="text" v-model="registration.streetname">
-      </div>
-      <div class="mt-2">
-        <label>Date of Current Appointment</label>
-        <input class="form-input rounded border-black border h-8 w-56" type="date">
-      </div>
-      <div>
-        <label>Customer Under IPPIS</label>
-        <select class="rounded border-black border h-8 w-7/12 mt-4 ml-14">
-          <option selected value="1">Select here</option>
-          <option value="2">Yes</option>
-          <option value="3">No</option>
-        </select>
-      </div>
-      <div class="mt-2">
-        <label class="">IPPIS Number</label>
-        <input class="rounded border-black border h-8 w-60" type="number" v-model="registration.mobilenumber">
-      </div>
-      <div class="mt-3">
-        <div v-for="(register, index) in registration" :key="index" class="grid grid-cols-5">
+      <div v-if="registration.sector !== 'Private'">
+        <div >
+          <label class="mr-2">Service ID No(Police/Paramilitary)</label>
+          <input class="rounded border-black border h-8 w-7/12 mt-4 ml-28" type="text" v-model="registration.streetname">
+        </div>
+        <div class="grid grid-cols-2">
           <div>
-            <label class="block">Salary structure</label>
-            <select class="rounded border-black border h-8 w-60" v-model="register.structure">
+            <label>Customer Under IPPIS</label>
+            <select class="rounded border-black border h-8 w-80 mt-4 ml-14">
               <option selected value="1">Select here</option>
-              <option v-for="entry in salarystructure" :key="entry">{{ entry.date }}</option>
-           </select>
+              <option value="2">Yes</option>
+              <option value="3">No</option>
+            </select>
           </div>
-          <div>
-            <label class="block">Grade Level</label>
-            <input type="text" class="border border-black rounded w-52 h-8" v-model="register.grade">
-          </div>
-          <div>
-            <label class="block">Grade Step</label>
-            <input type="text" class="border border-black rounded w-52 h-8" v-model="register.step">
-          </div>
-          <div>
-            <label class="block">Salary</label>
-            <input type="text" class="border border-black rounded w-52 h-8" v-model="register.salary">
-          </div>
-          <div>
-            <button class="bg-red-600 mt-6 rounded px-1 py-1 w-24 text-white font-bold" @click.prevent="remove(index)">X</button>   
+          <div class="mt-2 -ml-10">
+            <label class="">IPPIS Number</label>
+            <input class="rounded border-black border h-8 w-80 ml-5 mt-2" type="text" placeholder="Enter IPPIS number here" v-model="registration.mobilenumber">
           </div>
         </div>
-        <button class="bg-purple-600 rounded px-1 py-1 text-white font-bold" @click.prevent="add">ADD</button>
+        <div class="mt-3">
+          <div v-for="(register, index) in registration" :key="index" class="grid grid-cols-5">
+            <div>
+              <label class="block">Salary structure</label>
+              <select class="rounded border-black border h-8 w-60" v-model="register.structure">
+                <option selected value="1">Select here</option>
+                <option v-for="entry in salarystructure" :key="entry">{{ entry.date }}</option>
+            </select>
+            </div>
+            <div>
+              <label class="block">Grade Level</label>
+              <input type="text" class="border border-black rounded w-52 h-8" v-model="register.grade">
+            </div>
+            <div>
+              <label class="block">Grade Step</label>
+              <input type="text" class="border border-black rounded w-52 h-8" v-model="register.step">
+            </div>
+            <div>
+              <label class="block">Salary</label>
+              <input type="text" class="border border-black rounded w-52 h-8" v-model="register.salary">
+            </div>
+            <div>
+              <button class="bg-red-600 mt-6 rounded px-1 py-1 w-24 text-white font-bold" @click.prevent="remove(index)">X</button>   
+            </div>
+          </div>
+          <button class="bg-purple-600 rounded px-1 py-1 mt-1 w-24 text-white font-bold" @click.prevent="add">ADD</button>
+        </div>
+      </div>
+      <div class="grid grid-cols-4 mt-2">
+        <div>
+          <label class="block">Employer Name</label>
+          <input type="text" class="h-8 w-56 rounded border border-black" v-model="registration.employername">
+        </div>
+        <div>
+          <label class="block">Employer ID</label>
+          <input type="text" class="h-8 w-56 rounded border border-black bg-gray-200" disabled v-model="registration.employerid">
+        </div>
+        <div>
+          <label class="block">Employer Code</label>
+          <input type="text" class="h-8 w-56 rounded border border-black bg-gray-200" disabled v-model="registration.employercode">
+        </div>
+        <div>
+          <label class="block">Date of Retirement (If retired)</label>
+          <input type="date" class="h-8 w-56 rounded border border-black" v-model="registration.dateofretirement">
+        </div>
+      </div>
+      <div class="grid grid-cols-4 mt-2">
+        <div>
+          <label class="block">Date of First Employment</label>
+          <input type="date" class="h-8 w-56 rounded border border-black" v-model="registration.dateofemployment">
+        </div>
+        <div>
+          <label class="block">Date of Appointment</label>
+          <input type="date" class="h-8 w-56 rounded border border-black" v-model="registration.dateofappointment">
+        </div>
+        <div>
+          <label class="block">Date of Transfer of Service</label>
+          <input type="date" class="h-8 w-56 rounded border border-black" v-model="registration.servicetransfer">
+        </div>
+        <div>
+          <label class="block">Date of Current Employment</label>
+          <input type="date" class="h-8 w-56 rounded border border-black" v-model="registration.currentemployment">
+        </div>
+      </div>
+      <div class="grid grid-cols-4 mt-2">
+        <div>
+          <label class="block">Monthly Total Emolnument</label>
+          <input type="text" class="h-8 w-56 rounded border border-black" v-model="registration.totalemolument">
+        </div>
+        <div>
+          <label class="block">Employer Monthly Contribution</label>
+          <input type="text" class="h-8 w-56 rounded border border-black" v-model="registration.employecont">
+        </div>
+        <div>
+          <label class="block">Employee Monthly Contribution</label>
+          <input type="text" class="h-8 w-56 rounded border border-black" v-model="registration.employeecont">
+        </div>
+        <div>
+          <label class="block">Voluntary Contribution</label>
+          <input type="date" class="h-8 w-56 rounded border border-black" v-model="registration.voluntarycont">
+        </div>
+      </div>
+      <div class="grid grid-cols-4 mt-2">
+        <div>
+          <label class="block">Employer Industry</label>
+          <input type="text" class="h-8 w-56 rounded border border-black" v-model="registration.employerindustry">
+        </div>
+        <div>
+          <label class="block">Qualification</label>
+          <select v-model="registration.qualification" class="h-8 w-56 rounded border border-black">
+            <option value="1" selected>Bsc</option>
+            <option value="2">HND</option>
+            <option value="3">PGD</option>
+            <option value="4">Msc</option>
+            <option value="5">MBA</option>
+            <option value="6">Ssce</option>
+          </select>
+        </div>
+        <div>
+          <label class="block">Occupation</label>
+          <select v-model="registration.occupation" class="h-8 w-56 rounded border border-black">
+            <option value="1" selected>Banker</option>
+            <option value="2">Admin</option>
+          </select>
+        </div>
+        <div>
+          <label class="block font-semibold">Employer Building No/Name</label>
+          <input type="date" class="h-8 w-56 rounded border border-black" v-model="registration.employerno">
+        </div>
+      </div>
+      <div class="grid grid-cols-4 mt-2">
+        <div>
+          <label class="block font-semibold">Employer Streetname</label>
+          <input type="text" class="h-8 w-56 rounded border border-black" v-model="registration.employerstreet">
+        </div>
+        <div>
+          <label class="block font-semibold">Employer Country</label>
+          <select v-model="registration.employercountry" class="h-8 w-56 rounded border border-black">
+            <option value="1" selected>Nigeria</option>
+            <option value="2">Australia</option>
+          </select>
+        </div>
+        <div>
+          <label class="block font-semibold">Employer State</label>
+          <select v-model="registration.employerstate" class="h-8 w-56 rounded border border-black">
+            <option value="1" selected>Lagos</option>
+            <option value="2">Abia</option>
+          </select>
+        </div>
+        <div>
+          <label class="block font-semibold">Employer LGA</label>
+          <select v-model="registration.employerlga" class="h-8 w-56 rounded border border-black">
+            <option value="1" selected>Somolu</option>
+            <option value="2">Ikorodu</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid grid-cols-4 mt-2">
+        <div>
+          <label class="block">Village/Town/City</label>
+          <input type="text" class="h-8 w-56 rounded border border-black" v-model="registration.villagetowncity">
+        </div>
+        <div>
+          <label class="block">Postal Code</label>
+          <input type="text" class="h-8 w-56 rounded border border-black" v-model="registration.postalcode">
+        </div>
+        <div>
+          <label class="block">Employer Contact Number</label>
+          <input type="date" class="h-8 w-56 rounded border border-black" v-model="registration.servicetransfer">
+        </div>
+        <div>
+          <label class="block">Designation</label>
+          <input type="date" class="h-8 w-56 rounded border border-black" v-model="registration.currentemployment">
+        </div>
       </div>
     </form>
+    <div class="text-right mr-5">
+      <button class="bg-yellow-600 shadow-md h-11 mr-2 text-white px-2 py-1 rounded font-bold mt-6" @click.prevent="prev()">Previous Page</button>
+      <button class="bg-green-600 shadow-md h-11 mr-2 text-white px-2 py-1 rounded font-bold mt-6" @click.prevent="next()">Save and Continue</button>
+      <button class="bg-red-600 shadow-md h-11 text-white px-2 py-1 rounded font-bold">Save and Continue Later</button>
+    </div>
   </div>
-
-  
 </template>
+
+
 
 <script>
 import { ref } from 'vue';
@@ -282,6 +413,7 @@ export default {
   components:{ Appheader },
   setup(){
     const currentstep = ref(1)
+    const showing = ref(true)
     const salarystructure = ref([
       {date: '2019'},
       {date: '2016'},
@@ -290,6 +422,14 @@ export default {
       {date: '2007'},
       {date: '2004'}
     ]);
+
+    const sectors = ref([
+      {name:'Private', value:'1'},
+      {name:'Federal', value:'2'},
+      {name:'Cross-border', value:'3'},
+      {name:'Informal', value:'4'},
+      {name:'Others', value:'5'}
+    ])
 
     const add = () => {
       registration.value.push({structure:'', grade:'', step:'', salary:''})
@@ -300,7 +440,7 @@ export default {
     }
 
     const registration = ref([
-      {structure:'', grade:'', step:'01', salary:''}
+      {structure:'', grade:'', step:'', salary:'', sector:''}
     ])
 
     function next() {
@@ -311,7 +451,7 @@ export default {
       currentstep.value--
     }
 
-    return {currentstep, registration, next, prev, salarystructure, add, remove}
+    return {currentstep, registration, next, prev, salarystructure, add, remove, showing, sectors}
   }
 }
 </script>
