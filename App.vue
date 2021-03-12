@@ -402,9 +402,177 @@
       <button class="bg-red-600 shadow-md h-11 text-white px-2 py-1 rounded font-bold">Save and Continue Later</button>
     </div>
   </div>
+
+  <div v-if="currentstep === 4">
+    <form class="mt-7 ml-16 px-11 grid grid-cols-4">
+      <div>
+        <label class="mr-1 block">Next of Kin Title</label>
+        <select class="rounded border-black border w-56 h-8" v-model='registration.customertitle'>
+          <option selected>Select title</option>
+          <option>Mr</option>
+          <option>Mrs</option>
+          <option>Miss</option>
+        </select>
+      </div>
+      <div>
+        <label class="mr-1 block">Next of Kin Surname</label>
+        <input class="form-input rounded border-black border w-56 h-8" type="text" v-model="registration.noksurname">
+      </div>
+      <div>
+        <label class="mr-1 block">Next of Kin First Name</label>
+        <input class="form-input rounded border-black border w-56 h-8" type="text" v-model="registration.nokfirstname">
+      </div>
+      <div>
+        <label class="mr-1 block">Next of Kin Middle Name</label>
+        <input class="form-input rounded border-black border w-56 h-8" type="text" v-model="registration.nokmiddlename">
+      </div>
+      <div class="mt-3">
+        <label class="mr-1 block">Next of kin Gender</label>
+        <select class="rounded border-black border w-56 h-8" v-model='registration.nokgender'>
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+      </div>
+      <div>
+        <label class="mr-1 block">Next of Kin Relationship</label>
+        <select class="rounded border-black border w-56 h-8" v-model='registration.nokrelationship'>
+          <option selected>Select Relationship</option>
+          <option>Spouse</option>
+          <option>Husband</option>
+          <option>Wife</option>
+        </select>
+      </div>
+      <div>
+        <label class="block">Next of Kin Mobile Number</label>
+        <input type="text" class="h-8 w-56 rounded border border-black" v-model="registration.noknumber">
+      </div>
+      <div>
+        <label class="block">Next of Kin Alternate Number</label>
+        <input type="text" class="h-8 w-56 rounded border border-black" v-model="registration.nokalternatenumber">
+      </div>
+      <div class="mt-3">
+        <label class="block">Email Address</label>
+        <input type="email" class="h-8 w-56 rounded border border-black" v-model="registration.nokemail">
+      </div>
+      <div class="mt-3">
+        <label class="mr-1 block">Next of Kin Nationality</label>
+        <select class="rounded border-black border w-56 h-8" v-model='registration.noknationality'>
+          <option selected>Select Country</option>
+          <option>Nigeria</option>
+          <option>Austria</option>
+          <option>Australia</option>
+        </select>
+      </div>
+      <div class="mt-3">
+        <label class="mr-1 block">Next of Kin State of Origin</label>
+        <select class="rounded border-black border w-56 h-8" v-model='registration.nokstateoforigin'>
+          <option>Abia</option>
+          <option>Adamawa</option>
+          <option>Akwa-Ibom</option>
+        </select>
+      </div>
+      <div class="mt-3">
+        <label class="mr-1 block">Next of Kin LGA of Origin</label>
+        <select class="rounded border-black border w-56 h-8" v-model='registration.noklgaoforigin'>
+          <option>Amuwo Odofin</option>
+          <option>Ikorodu</option>
+          <option>Kosofe</option>
+        </select>
+      </div>
+      <div class="mt-3">
+        <label class="mr-1 block">Village/Town/City</label>
+        <input type="text" class="h-8 rounded border border-black w-56" v-model="registration.nokvillage">
+      </div>
+      <div class="mt-3">
+        <label class="mr-1 block">Postal Code</label>
+        <input type="text" class="h-8 rounded border border-black w-56" v-model="registration.nokpostalcode">
+      </div>
+      <div class="mt-3">
+        <label class="mr-1 block">House Number/Name</label>
+        <input type="text" class="h-8 rounded border border-black w-56" v-model="registration.nokhouseno">
+      </div>
+      <div class="mt-3">
+        <label class="mr-1 block">Streetname</label>
+        <input type="text" class="h-8 rounded border border-black w-56" v-model="registration.nokstreetname">
+      </div>
+    </form>
+    <div class="text-right mr-5">
+      <button class="bg-yellow-600 shadow-md h-11 mr-2 text-white px-2 py-1 rounded font-bold mt-6" @click.prevent="prev()">Previous Page</button>
+      <button class="bg-green-600 shadow-md h-11 mr-2 text-white px-2 py-1 rounded font-bold mt-6" @click.prevent="next()">Save and Continue</button>
+      <button class="bg-red-600 shadow-md h-11 text-white px-2 py-1 rounded font-bold">Save and Continue Later</button>
+    </div>
+  </div>
+  <div v-if="currentstep === 5">
+    <form class="mt-7 ml-16 px-11 grid grid-cols-4">
+      <div>
+        <div class="w-full h-max justify-center bg-grey-lighter">
+          <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+            <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+             <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+            </svg>
+            <span class="mt-2 text-sm leading-normal font-bold">Upload Passport</span>
+            <input type='file' class="hidden" />
+          </label>
+        </div>
+      </div>
+      <div>
+        <div class="w-full h-max justify-center bg-grey-lighter">
+          <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+            <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+             <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+            </svg>
+            <span class="mt-2 text-sm leading-normal font-bold">Upload Signature</span>
+            <input type='file' class="hidden" />
+          </label>
+        </div>
+      </div>
+      <div>
+        <div class="w-full h-max justify-center bg-grey-lighter">
+          <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+            <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+             <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+            </svg>
+            <span class="mt-2 text-sm leading-normal font-bold">Upload Birth Certificate</span>
+            <input type='file' class="hidden" />
+          </label>
+        </div>
+      </div>
+      <div>
+        <div class="w-full h-max justify-center bg-grey-lighter">
+          <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+            <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+             <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+            </svg>
+            <span class="mt-2 text-sm leading-normal font-bold">Upload Employment Letter</span>
+            <input type='file' class="hidden" />
+          </label>
+        </div>
+      </div>
+      <div>
+        <div class="w-full h-max justify-center bg-grey-lighter">
+          <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+            <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+             <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+            </svg>
+            <span class="mt-2 text-sm leading-normal font-bold">Means of Identification</span>
+            <input type='file' class="hidden" />
+          </label>
+        </div>
+      </div>
+      <div>
+        <div class="w-full h-max justify-center bg-grey-lighter">
+          <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+            <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+             <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+            </svg>
+            <span class="mt-2 text-sm leading-normal font-bold">Proof of Address</span>
+            <input type='file' class="hidden" />
+          </label>
+        </div>
+      </div>
+    </form>
+  </div>
 </template>
-
-
 
 <script>
 import { ref } from 'vue';
@@ -413,7 +581,7 @@ export default {
   components:{ Appheader },
   setup(){
     const currentstep = ref(1)
-    const showing = ref(true)
+    
     const salarystructure = ref([
       {date: '2019'},
       {date: '2016'},
@@ -451,7 +619,7 @@ export default {
       currentstep.value--
     }
 
-    return {currentstep, registration, next, prev, salarystructure, add, remove, showing, sectors}
+    return {currentstep, registration, next, prev, salarystructure, add, remove, sectors}
   }
 }
 </script>
@@ -471,7 +639,6 @@ export default {
 
 .active {
   background-color: #DF5C2E;
-  color: #DF5C2E;
 }
 
 .progress-step {
