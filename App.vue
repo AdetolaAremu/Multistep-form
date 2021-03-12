@@ -502,75 +502,238 @@
       <button class="bg-red-600 shadow-md h-11 text-white px-2 py-1 rounded font-bold">Save and Continue Later</button>
     </div>
   </div>
-  <div v-if="currentstep === 5">
-    <form class="mt-7 ml-16 px-11 grid grid-cols-4">
-      <div>
-        <div class="w-full h-max justify-center bg-grey-lighter">
-          <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
-            <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-             <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-            </svg>
-            <span class="mt-2 text-sm leading-normal font-bold">Upload Passport</span>
-            <input type='file' class="hidden" />
-          </label>
+  <div class="mt-3" v-if="currentstep === 5">
+    <div>
+      <p class="font-bold text-center text-lg">
+        Upload your passport, signature and other supporting 
+        document in <span class="text-red-600 font-bold">JPEG, JPG and PNG</span> as stated in each upload box, <span class="text-red-600 font-bold">file size should not exceed 500kb</span>
+      </p>
+    </div>
+    <form class="mt-5 ml-16 px-11">
+      <div class="grid grid-cols-4">
+        <div>
+          <div class="w-full h-max justify-center bg-grey-lighter">
+            <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+              <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+              </svg>
+              <span class="mt-2 text-sm leading-normal font-bold">Upload Passport</span>
+              <input type='file' class="hidden" />
+            </label>
+          </div>
+        </div>
+        <div>
+          <div class="w-full h-max justify-center bg-grey-lighter">
+            <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+              <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+              </svg>
+              <span class="mt-2 text-sm leading-normal font-bold">Upload Signature</span>
+              <input type='file' class="hidden" />
+            </label>
+          </div>
+        </div>
+        <div>
+          <div class="w-full h-max justify-center bg-grey-lighter">
+            <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+              <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+              </svg>
+              <span class="mt-2 text-sm leading-normal font-bold">Upload Birth Certificate</span>
+              <input type='file' class="hidden" />
+            </label>
+          </div>
+        </div>
+        <div>
+          <div class="w-full h-max justify-center bg-grey-lighter">
+            <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+              <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+              </svg>
+              <span class="mt-2 text-sm leading-normal font-bold">Upload Employment Letter</span>
+              <input type='file' class="hidden" />
+            </label>
+          </div>
+        </div>
+        <div>
+          <div class="w-full h-max justify-center bg-grey-lighter mt-2">
+            <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+              <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+              </svg>
+              <span class="mt-2 text-sm leading-normal font-bold">Means of Identification</span>
+              <input type='file' class="hidden" />
+            </label>
+          </div>
+        </div>
+        <div>
+          <div class="w-full h-max justify-center bg-grey-lighter mt-2">
+            <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+              <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+              </svg>
+              <span class="mt-2 text-sm leading-normal font-bold">UPLOAD Proof of Address</span>
+              <input type='file' class="hidden" />
+            </label>
+          </div>
         </div>
       </div>
-      <div>
-        <div class="w-full h-max justify-center bg-grey-lighter">
-          <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
-            <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-             <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-            </svg>
-            <span class="mt-2 text-sm leading-normal font-bold">Upload Signature</span>
-            <input type='file' class="hidden" />
-          </label>
+      <div v-if="registration.sector !== 'Private'" class="mt-5">
+        <div><p class="font-bold text-lg">Public Sector participant, upload salary structure as stated in the upload boxes below</p></div>
+        <div class="grid grid-cols-4">
+          <div class="grid grid-cols-4">
+            <div class="w-full h-max justify-center bg-grey-lighter mt-2">
+              <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+                <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                </svg>
+                <span class="mt-2 text-sm leading-normal font-bold">Harmonized Salary 2004</span>
+                <input type='file' class="hidden" />
+              </label>
+            </div>
+          </div>
+          <div>
+            <div class="w-full h-max justify-center bg-grey-lighter mt-2">
+              <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+                <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                </svg>
+                <span class="mt-2 text-sm leading-normal font-bold">Consolidated Salary 2007</span>
+                <input type='file' class="hidden" />
+              </label>
+            </div>
+          </div>
+          <div>
+            <div class="w-full h-max justify-center bg-grey-lighter mt-2">
+              <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+                <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                </svg>
+                <span class="mt-2 text-sm leading-normal font-bold">Consolidated Salary 2010</span>
+                <input type='file' class="hidden" />
+              </label>
+            </div>
+          </div>
+          <div>
+            <div class="w-full h-max justify-center bg-grey-lighter mt-2">
+              <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+                <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                </svg>
+                <span class="mt-2 text-sm leading-normal font-bold">Harmonized Salary 2013</span>
+                <input type='file' class="hidden" />
+              </label>
+            </div>
+          </div>
+          <div>
+            <div class="w-full h-max justify-center bg-grey-lighter mt-2">
+              <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+                <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                </svg>
+                <span class="mt-2 text-sm leading-normal font-bold">Harmonized Salary 2016</span>
+                <input type='file' class="hidden" />
+              </label>
+            </div>
+          </div>
+          <div>
+            <div class="w-full h-max justify-center bg-grey-lighter mt-2">
+              <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+                <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                </svg>
+                <span class="mt-2 text-sm leading-normal font-bold">Current Salary 2019</span>
+                <input type='file' class="hidden" />
+              </label>
+            </div>
+          </div>
         </div>
       </div>
-      <div>
-        <div class="w-full h-max justify-center bg-grey-lighter">
-          <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
-            <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-             <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-            </svg>
-            <span class="mt-2 text-sm leading-normal font-bold">Upload Birth Certificate</span>
-            <input type='file' class="hidden" />
-          </label>
+      <div class="mt-5">
+        <div><p class="font-bold text-lg">Kindly upload additional/supporting documents here</p></div>
+        <div class="grid grid-cols-4">
+          <div class="grid grid-cols-4">
+            <div class="w-full h-max justify-center bg-grey-lighter mt-2">
+              <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+                <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                </svg>
+                <span class="mt-2 text-sm leading-normal font-bold">Additional Document 1</span>
+                <input type='file' class="hidden" />
+              </label>
+            </div>
+          </div>
+          <div>
+            <div class="w-full h-max justify-center bg-grey-lighter mt-2">
+              <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+                <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                </svg>
+                <span class="mt-2 text-sm leading-normal font-bold">Additional Document 2</span>
+                <input type='file' class="hidden" />
+              </label>
+            </div>
+          </div>
+          <div>
+            <div class="w-full h-max justify-center bg-grey-lighter mt-2">
+              <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+                <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                </svg>
+                <span class="mt-2 text-sm leading-normal font-bold">Additional Document 3</span>
+                <input type='file' class="hidden" />
+              </label>
+            </div>
+          </div>
+          <div>
+            <div class="w-full h-max justify-center bg-grey-lighter mt-2">
+              <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+                <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                </svg>
+                <span class="mt-2 text-sm leading-normal font-bold">Additional Document 4</span>
+                <input type='file' class="hidden" />
+              </label>
+            </div>
+          </div>
+          <div>
+            <div class="w-full h-max justify-center bg-grey-lighter mt-2">
+              <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+                <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                </svg>
+                <span class="mt-2 text-sm leading-normal font-bold">Additional Document 5</span>
+                <input type='file' class="hidden" />
+              </label>
+            </div>
+          </div>
+          <div>
+            <div class="w-full h-max justify-center bg-grey-lighter mt-2">
+              <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+                <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                </svg>
+                <span class="mt-2 text-sm leading-normal font-bold">Additional Document 6</span>
+                <input type='file' class="hidden" />
+              </label>
+            </div>
+          </div>
         </div>
       </div>
-      <div>
-        <div class="w-full h-max justify-center bg-grey-lighter">
-          <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
-            <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-             <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-            </svg>
-            <span class="mt-2 text-sm leading-normal font-bold">Upload Employment Letter</span>
-            <input type='file' class="hidden" />
-          </label>
-        </div>
-      </div>
-      <div>
-        <div class="w-full h-max justify-center bg-grey-lighter">
-          <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
-            <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-             <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-            </svg>
-            <span class="mt-2 text-sm leading-normal font-bold">Means of Identification</span>
-            <input type='file' class="hidden" />
-          </label>
-        </div>
-      </div>
-      <div>
-        <div class="w-full h-max justify-center bg-grey-lighter">
-          <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
-            <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-             <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-            </svg>
-            <span class="mt-2 text-sm leading-normal font-bold">Proof of Address</span>
-            <input type='file' class="hidden" />
-          </label>
-        </div>
+      <div class="mt-3">
+        <label class="block font-bold">Acknowledgement/Cerification</label>
+        <textarea cols="30" rows="4" disabled class="border border-black w-full rounded bg-gray-100">
+          I insert name hereby certify that the information provided or as confirmed by me in this form is true and correct.
+          I further consent and authorize Nigeria Inter-Bank Settlement System Plc and National Identity Management Commission to release my BVN
+          and or NIN information (as may be required) to the National Pension Commission(Pencom) for the maintenance and operation of my
+        </textarea>
       </div>
     </form>
+    <div class="text-right mr-5">
+      <button class="bg-yellow-600 shadow-md h-11 mr-2 text-white px-2 py-1 rounded font-bold mt-6" @click.prevent="prev()">Previous Page</button>
+      <button class="bg-green-600 shadow-md h-11 mr-2 text-white px-2 py-1 rounded font-bold mt-6" @click.prevent="next()">Save and Continue</button>
+      <button class="bg-red-600 shadow-md h-11 text-white px-2 py-1 rounded font-bold">Save and Continue Later</button>
+    </div>
   </div>
 </template>
 
