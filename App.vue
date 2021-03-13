@@ -169,21 +169,21 @@
       </div>
       <div>
         <label>Country of Residence</label>
-        <select class="rounded border-black border h-8 w-7/12 mt-4 ml-14">
+        <select class="rounded border-black border h-8 w-7/12 mt-4 ml-14" v-model="registration.countryofresidence">
           <option selected value="1">Nigeria</option>
           <option value="2">Niger</option>
         </select>
       </div>
       <div>
         <label>State of Residence</label>
-        <select class="rounded border-black border h-8 w-7/12 mt-4" style="margin-left: 4.7rem">
+        <select class="rounded border-black border h-8 w-7/12 mt-4" style="margin-left: 4.7rem" v-model="registration.stateofresidence">
           <option selected value="1">Abia</option>
           <option value="2">Adamawa</option>
         </select>
       </div>
       <div>
         <label>LGA of Residence</label>
-        <select class="rounded border-black border h-8 w-7/12 mt-4" style="margin-left: 5.1rem">
+        <select class="rounded border-black border h-8 w-7/12 mt-4" style="margin-left: 5.1rem" v-model="registration.lgaofresidence">
           <option selected value="1">Surulere</option>
           <option value="2">Shomolu</option>
         </select>
@@ -224,12 +224,12 @@
       <div v-if="registration.sector !== 'Private'">
         <div >
           <label class="mr-2">Service ID No(Police/Paramilitary)</label>
-          <input class="rounded border-black border h-8 w-7/12 mt-4 ml-28" type="text" v-model="registration.streetname">
+          <input class="rounded border-black border h-8 w-7/12 mt-4 ml-28" type="text" v-model="registration.serviceid">
         </div>
         <div class="grid grid-cols-2">
           <div>
             <label>Customer Under IPPIS</label>
-            <select class="rounded border-black border h-8 w-80 mt-4 ml-14">
+            <select class="rounded border-black border h-8 w-80 mt-4 ml-14" v-model="registration.underippis">
               <option selected value="1">Select here</option>
               <option value="2">Yes</option>
               <option value="3">No</option>
@@ -237,7 +237,7 @@
           </div>
           <div class="mt-2 -ml-10">
             <label class="">IPPIS Number</label>
-            <input class="rounded border-black border h-8 w-80 ml-5 mt-2" type="text" placeholder="Enter IPPIS number here" v-model="registration.mobilenumber">
+            <input class="rounded border-black border h-8 w-80 ml-5 mt-2" type="text" placeholder="Enter IPPIS number here" v-model="registration.ippisnumber">
           </div>
         </div>
         <div class="mt-3">
@@ -311,7 +311,7 @@
         </div>
         <div>
           <label class="block">Employer Monthly Contribution</label>
-          <input type="text" class="h-8 w-56 rounded border border-black" v-model="registration.employecont">
+          <input type="text" class="h-8 w-56 rounded border border-black" v-model="registration.employercont">
         </div>
         <div>
           <label class="block">Employee Monthly Contribution</label>
@@ -329,7 +329,7 @@
         </div>
         <div>
           <label class="block">Qualification</label>
-          <select v-model="registration.qualification" class="h-8 w-56 rounded border border-black">
+          <select class="h-8 w-56 rounded border border-black" v-model="registration.qualification">
             <option value="1" selected>Bsc</option>
             <option value="2">HND</option>
             <option value="3">PGD</option>
@@ -340,14 +340,14 @@
         </div>
         <div>
           <label class="block">Occupation</label>
-          <select v-model="registration.occupation" class="h-8 w-56 rounded border border-black">
+          <select class="h-8 w-56 rounded border border-black" v-model="registration.occupation">
             <option value="1" selected>Banker</option>
             <option value="2">Admin</option>
           </select>
         </div>
         <div>
           <label class="block font-semibold">Employer Building No/Name</label>
-          <input type="date" class="h-8 w-56 rounded border border-black" v-model="registration.employerno">
+          <input type="date" class="h-8 w-56 rounded border border-black" v-model="registration.employerbuildingno">
         </div>
       </div>
       <div class="grid grid-cols-4 mt-2">
@@ -357,21 +357,21 @@
         </div>
         <div>
           <label class="block font-semibold">Employer Country</label>
-          <select v-model="registration.employercountry" class="h-8 w-56 rounded border border-black">
+          <select class="h-8 w-56 rounded border border-black" v-model="registration.employercountry">
             <option value="1" selected>Nigeria</option>
             <option value="2">Australia</option>
           </select>
         </div>
         <div>
           <label class="block font-semibold">Employer State</label>
-          <select v-model="registration.employerstate" class="h-8 w-56 rounded border border-black">
+          <select class="h-8 w-56 rounded border border-black" v-model="registration.employerstate">
             <option value="1" selected>Lagos</option>
             <option value="2">Abia</option>
           </select>
         </div>
         <div>
           <label class="block font-semibold">Employer LGA</label>
-          <select v-model="registration.employerlga" class="h-8 w-56 rounded border border-black">
+          <select class="h-8 w-56 rounded border border-black" v-model="registration.employerlga">
             <option value="1" selected>Somolu</option>
             <option value="2">Ikorodu</option>
           </select>
@@ -388,11 +388,11 @@
         </div>
         <div>
           <label class="block">Employer Contact Number</label>
-          <input type="date" class="h-8 w-56 rounded border border-black" v-model="registration.servicetransfer">
+          <input type="date" class="h-8 w-56 rounded border border-black" v-model="registration.employercontactno">
         </div>
         <div>
           <label class="block">Designation</label>
-          <input type="date" class="h-8 w-56 rounded border border-black" v-model="registration.currentemployment">
+          <input type="date" class="h-8 w-56 rounded border border-black" v-model="registration.designation">
         </div>
       </div>
     </form>
@@ -407,7 +407,7 @@
     <form class="mt-7 ml-16 px-11 grid grid-cols-4">
       <div>
         <label class="mr-1 block">Next of Kin Title</label>
-        <select class="rounded border-black border w-56 h-8" v-model='registration.customertitle'>
+        <select class="rounded border-black border w-56 h-8" v-model='registration.noktitle'>
           <option selected>Select title</option>
           <option>Mr</option>
           <option>Mrs</option>
@@ -464,16 +464,16 @@
         </select>
       </div>
       <div class="mt-3">
-        <label class="mr-1 block">Next of Kin State of Origin</label>
-        <select class="rounded border-black border w-56 h-8" v-model='registration.nokstateoforigin'>
+        <label class="mr-1 block">Next of Kin State of Residence</label>
+        <select class="rounded border-black border w-56 h-8" v-model='registration.nokstateofresidence'>
           <option>Abia</option>
           <option>Adamawa</option>
           <option>Akwa-Ibom</option>
         </select>
       </div>
       <div class="mt-3">
-        <label class="mr-1 block">Next of Kin LGA of Origin</label>
-        <select class="rounded border-black border w-56 h-8" v-model='registration.noklgaoforigin'>
+        <label class="mr-1 block">Next of Kin LGA of Residence</label>
+        <select class="rounded border-black border w-56 h-8" v-model='registration.noklgaofresidence'>
           <option>Amuwo Odofin</option>
           <option>Ikorodu</option>
           <option>Kosofe</option>
@@ -741,8 +741,15 @@
       <!-- <div>
         <p class="text-2xl font-bold text-center">REVIEW PAGE</p>
       </div> -->
-      <div><p class="text-lg font-bold text-center">PERSONAL INFORMATION</p></div>
-      <div class="grid grid-cols-4">
+      <div>
+        <div><p class="text-lg font-bold text-center bg-gray-500 text-white mt-3 mb-2">BIOMETRICS</p></div>
+        <div class="grid grid-cols-2">
+          <div class="border border-black h-40 w-40 ml-40"></div>
+          <div class="border border-black h-40 w-40 ml-20"></div>
+        </div>
+      </div>
+      <div><p class="text-lg font-bold text-center bg-gray-500 text-white mt-3 mb-2">PERSONAL INFORMATION</p></div>
+      <div class="grid grid-cols-3">
         <div>
           <div><p><span class="font-bold">Title:</span> {{ registration.title }}</p></div>
         </div>
@@ -801,6 +808,180 @@
           <div><p><span class="font-bold">NIN:</span> {{ registration.nin }}</p></div>
         </div>
       </div>
+      <div>
+        <div><p class="text-lg font-bold text-center bg-gray-500 text-white mt-3 mb-2">CONTACT DETAILS</p></div>
+        <div class="grid grid-cols-2">
+          <div>
+            <div><p><span class="font-bold">House Number:</span> {{ registration.houseno }}</p></div>
+          </div>
+          <div>
+            <div><p><span class="font-bold">Street Name:</span> {{ registration.streetname }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Village/Town/City:</span> {{ registration.villagetown }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Country of Residence:</span> {{ registration.countryofresidence }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">State of Residence:</span> {{ registration.stateofresidence }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">LGA of Residence:</span> {{ registration.lgaofresidence }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Mobile Number:</span> {{ registration.mobilenumber }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Alternate Number:</span> {{ registration.alternatenumber }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Email Address:</span> {{ registration.email }}</p></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div><p class="text-lg font-bold text-center bg-gray-500 text-white mt-3 mb-2">EMPLOYMENT DETAILS</p></div>
+        <div class="grid grid-cols-2">
+          <div>
+            <div><p><span class="font-bold">Sector</span> {{ registration.sector }}</p></div>
+          </div>
+          <div>
+            <div><p><span class="font-bold">Service ID:</span> {{ registration.serviceid }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Under IPPIS:</span> {{ registration.underippis }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">IPPIS Number:</span> {{ registration.ippisnumber }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Employer Name:</span> {{ registration.employername }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Date of First Employment:</span> {{ registration.dateofemployment }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Date of Retirement:</span> {{ registration.dateofretirement }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Date of Appointment:</span> {{ registration.dateofappointment }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Current Employment:</span> {{ registration.currentemployment }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Service Transfer:</span> {{ registration.servicetransfer }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Total Emolnument:</span> {{ registration.totalemolument }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Employer Contribution:</span> {{ registration.employercont }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Employee Contribution:</span> {{ registration.employeecont }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Voluntary Contribution:</span> {{ registration.voluntarycont }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Employer Industry:</span> {{ registration.employerindustry }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Qualification:</span> {{ registration.qualification }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Occupation:</span> {{ registration.occupation }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Employer Building No:</span> {{ registration.employerbuildingno }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Employer Street:</span> {{ registration.employerstreet }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Employer Country:</span> {{ registration.employercountry }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Employer State:</span> {{ registration.employerstate }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Employer LGA:</span> {{ registration.employerlga }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Village/Town/City:</span> {{ registration.villagetowncity }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Postal Code:</span> {{ registration.postalcode }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Employer Contact No:</span> {{ registration.employercontactno }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Designation:</span> {{ registration.designation }}</p></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div>
+        <div><p class="text-lg font-bold text-center bg-gray-500 text-white mt-3 mb-2">NEXT OF KIN DETAILS</p></div>
+        <div class="grid grid-cols-2">
+          <div>
+            <div><p><span class="font-bold">Next of Kin Title:</span> {{ registration.noktitle }}</p></div>
+          </div>
+          <div>
+            <div><p><span class="font-bold">Next of Kin Surname:</span> {{ registration.noksurname }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Next of Kin First Name:</span> {{ registration.nokfirstname }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Next of Kin Middlename:</span> {{ registration.nokmiddlename }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Next of Kin Gender:</span> {{ registration.nokgender }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Next of Kin Relationship:</span> {{ registration.nokrelationship }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Next of Kin Mobile Number:</span> {{ registration.noknumber }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Next of Kin Alternate Number:</span> {{ registration.nokalternatenumber }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Next of Kin Email:</span> {{ registration.nokemail }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Next of Kin Nationality:</span> {{ registration.nationality }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Next of Kin State of Residence:</span> {{ registration.nokstateofresidence }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Next of Kin LGA of Residence:</span> {{ registration.noklgaofresidence }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Next of Kin Village:</span> {{ registration.nokvillage }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Next of Kin Postal Code:</span> {{ registration.nokpostalcode }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Next of Kin House No:</span> {{ registration.nokhouseno }}</p></div>
+          </div>
+          <div class="mt-2">
+            <div><p><span class="font-bold">Next of Kin Street Name:</span> {{ registration.nokstreetname }}</p></div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="text-right mr-5">
+      <button class="bg-yellow-600 shadow-md h-11 mr-2 text-white px-2 py-1 rounded font-bold mt-6" @click.prevent="prev()">Previous Page</button>
+      <button class="bg-green-600 shadow-md h-11 mr-2 text-white px-2 py-1 rounded font-bold mt-6 w-40" @click.prevent="next()">Submit</button>
+    </div>
     </div>
   </div>
 </template>
@@ -842,11 +1023,14 @@ export default {
       {
         title:'', firstname:'', middlename:'', gender:'', maritalstatus:'', maidenname:'', placeofbirth:'', dob:'', nationality:'',
         stateoforigin:'', lgaoforigin:'', otherpfa:'', otherpin:'', pin:'', challenged:'', moi:'', cardnumber:'', bvn:'', nin:'',
-        structure:'',
-        grade:'',
-        step:'', 
-        salary:'', 
-        sector:''
+        houseno:'', streetname:'', villagetown:'', countryofresidence:'', stateofresidence:'', lgaofresidence:'', mobilenumber:'',
+        alternatenumber:'', emailaddress:'', sector:'', serviceid:'', underippis:'', structure:'', grade:'', step:'', salary:'',
+        employername:'', employerid:'', employercode:'', dateofretirement:'', dateofemployment:'', dateofappointment:'', servicetransfer:'',
+        currentemployment:'', totalemolument:'', employercont:'', employeecont:'', voluntarycont:'', employerindustry:'', qualification:'',
+        occupation:'', employerbuildingno:'', employerstreet:'', employercountry:'', employerstate:'', employerlga:'', villagetowncity:'',
+        postalcode:'', employercontactno:'', designation:'', noktitle:'', noksurname:'', nokfirstname:'', nokmiddlename:'', nokgender:'',
+        nokrelationship:'', noknumber:'', nokalternatenumber:'', nokemail:'', noknationality:'', nokstateofresidence:'', noklgaofresidence:'',
+        nokvillage:'', nokpostalcode:'', nokhouseno:'', nokstreetname:''
       }
     ])
 
@@ -864,6 +1048,10 @@ export default {
 </script>
 
 <style>
+
+body {
+  background: linear-gradient(to bottom, #DF5C2E, white, purple);
+}
 
 .progress-step {
   position: relative;
