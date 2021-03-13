@@ -28,7 +28,7 @@
     <form class="grid grid-cols-4 mt-4 pl-8">
       <div>
         <label class="block">Title</label>
-        <select class="rounded border-black border w-56 h-8" v-model='registration.customertitle'>
+        <select class="rounded border-black border w-56 h-8" v-model='registration.title'>
           <option selected>Select title</option>
           <option>Mr</option>
           <option>Mrs</option>
@@ -112,7 +112,7 @@
       </div>
       <div class="mt-3">
         <label class="mr-1 block">Other Pin</label>
-        <input class="rounded border-black border h-8 w-56" type="text" v-model="registration.bvn">
+        <input class="rounded border-black border h-8 w-56" type="text" v-model="registration.otherpin">
       </div>
       <div class="mt-3">
         <label class="mr-1 block">PIN</label>
@@ -735,6 +735,74 @@
       <button class="bg-red-600 shadow-md h-11 text-white px-2 py-1 rounded font-bold">Save and Continue Later</button>
     </div>
   </div>
+  
+  <div v-if="currentstep === 6">
+    <div class="mt-4 pl-28">
+      <!-- <div>
+        <p class="text-2xl font-bold text-center">REVIEW PAGE</p>
+      </div> -->
+      <div><p class="text-lg font-bold text-center">PERSONAL INFORMATION</p></div>
+      <div class="grid grid-cols-4">
+        <div>
+          <div><p><span class="font-bold">Title:</span> {{ registration.title }}</p></div>
+        </div>
+        <div>
+          <div><p><span class="font-bold">Surname:</span> {{ registration.surname }}</p></div>
+        </div>
+        <div>
+          <div><p><span class="font-bold">First name:</span> {{ registration.firstname }}</p></div>
+        </div>
+        <div>
+          <div><p><span class="font-bold">Middle name:</span> {{ registration.middlename }}</p></div>
+        </div>
+        <div class="mt-2">
+          <div><p><span class="font-bold">Gender:</span> {{ registration.gender }}</p></div>
+        </div>
+        <div class="mt-2">
+          <div><p><span class="font-bold">Marital Status:</span> {{ registration.maritalstatus }}</p></div>
+        </div>
+        <div class="mt-2">
+          <div><p><span class="font-bold">Maiden Name:</span> {{ registration.maidenname }}</p></div>
+        </div>
+        <div class="mt-2">
+          <div><p><span class="font-bold">Place Of Birth:</span> {{ registration.placeofbirth }}</p></div>
+        </div>
+        <div class="mt-2">
+          <div><p><span class="font-bold">dob:</span> {{ registration.dob }}</p></div>
+        </div>
+        <div class="mt-2">
+          <div><p><span class="font-bold">Nationality:</span> {{ registration.nationality }}</p></div>
+        </div>
+        <div class="mt-2">
+          <div><p><span class="font-bold">State Of Origin:</span> {{ registration.stateoforigin }}</p></div>
+        </div>
+        <div class="mt-2">
+          <div><p><span class="font-bold">LGA of Origin:</span> {{ registration.lgaoforigin }}</p></div>
+        </div>
+        <div class="mt-2">
+          <div><p><span class="font-bold">Other PFA:</span> {{ registration.otherpfa }}</p></div>
+        </div>
+        <div class="mt-2">
+          <div><p><span class="font-bold">Pin:</span> {{ registration.pin }}</p></div>
+        </div>
+        <div class="mt-2">
+          <div><p><span class="font-bold">Physically Challenged:</span> {{ registration.challenged }}</p></div>
+        </div>
+        <div class="mt-2">
+          <div><p><span class="font-bold">Means of Identification:</span> {{ registration.moi }}</p></div>
+        </div>
+        <div class="mt-2">
+          <div><p><span class="font-bold">Card Number:</span> {{ registration.cardnumber }}</p></div>
+        </div>
+        <div class="mt-2">
+          <div><p><span class="font-bold">BVN:</span> {{ registration.bvn }}</p></div>
+        </div>
+        <div class="mt-2">
+          <div><p><span class="font-bold">NIN:</span> {{ registration.nin }}</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -771,7 +839,15 @@ export default {
     }
 
     const registration = ref([
-      {structure:'', grade:'', step:'', salary:'', sector:''}
+      {
+        title:'', firstname:'', middlename:'', gender:'', maritalstatus:'', maidenname:'', placeofbirth:'', dob:'', nationality:'',
+        stateoforigin:'', lgaoforigin:'', otherpfa:'', otherpin:'', pin:'', challenged:'', moi:'', cardnumber:'', bvn:'', nin:'',
+        structure:'',
+        grade:'',
+        step:'', 
+        salary:'', 
+        sector:''
+      }
     ])
 
     function next() {
