@@ -1,30 +1,51 @@
 <template>
   <Appheader />
-  <div class="progress grid grid-cols-3 px-11 mt-3">
+  <div class="progress grid grid-cols-6 px-11 mt-3 mb-3">
     <div
       class="progress-step"
       :class="{'active': currentstep >= 1}"
     >
-      <p class="text-center">1</p>
-      <p class="mr-2 mt-1">Personal</p>
+      <p></p>
+      <label class="mt-1">PERSONAL DETAILS</label>
     </div>
     <div
       class="progress-step"
       :class="{'active': currentstep >= 2}"
     >
-      <p class="text-center">2</p>
-      <p class="mt-1">ADDRESS</p>
+      <p class="text-center"></p>
+      <p class="mt-1">CONTACT ADDRESS</p>
     </div>
     <div
       class="progress-step"
       :class="{'active': currentstep >= 3}"
     >
-      <p class="text-center">3</p>
+      <p class="text-center"></p>
       <p class="mt-1">EMPLOYER</p>
+    </div>
+    <div
+      class="progress-step"
+      :class="{'active': currentstep >= 4}"
+    >
+      <p class="text-center"></p>
+      <p class="mt-1">NEXT OF KIN</p>
+    </div>
+    <div
+      class="progress-step"
+      :class="{'active': currentstep >= 5}"
+    >
+      <p class="text-center"></p>
+      <p class="mt-1">UPLOAD</p>
+    </div>
+    <div
+      class="progress-step"
+      :class="{'active': currentstep >= 6}"
+    >
+      <p class="text-center"></p>
+      <p class="mt-1">REVIEW</p>
     </div>
   </div>
 
-  <div v-if="currentstep === 1" class="px-11">    
+  <div v-if="currentstep === 1" class="px-20 py-5 bg-white h-full">    
     <form class="grid grid-cols-4 mt-4 pl-8">
       <div>
         <label class="block">Title</label>
@@ -153,7 +174,7 @@
     </div>
   </div>
 
-  <div v-if="currentstep === 2">
+  <div v-if="currentstep === 2" class="bg-white h-full py-5">
     <form class="ml-16 px-11">
       <div>
         <label class="mr-2">House Number/Name</label>
@@ -210,11 +231,11 @@
     </div>
   </div>
 
-  <div v-if="currentstep === 3">
+  <div v-if="currentstep === 3" class="bg-white h-full py-5">
     <form class="ml-16 px-11">
       <div>
         <label>Select Sector</label>
-        <select class="rounded border-black border h-8 w-7/12 mt-4 ml-14" v-model="registration.sector">
+        <select class="rounded border-black border h-8 w-7/12 mt-4 ml-40" v-model="registration.sector">
           <option>Select Sector</option>
           <option>Private</option>
           <option>Federal</option>
@@ -224,20 +245,20 @@
       <div v-if="registration.sector !== 'Private'">
         <div >
           <label class="mr-2">Service ID No(Police/Paramilitary)</label>
-          <input class="rounded border-black border h-8 w-7/12 mt-4 ml-28" type="text" v-model="registration.serviceid">
+          <input class="rounded border-black border h-8 w-7/12 mt-4 ml-2" type="text" v-model="registration.serviceid">
         </div>
         <div class="grid grid-cols-2">
           <div>
             <label>Customer Under IPPIS</label>
-            <select class="rounded border-black border h-8 w-80 mt-4 ml-14" v-model="registration.underippis">
+            <select class="rounded border-black border h-8 w-52 mt-4 ml-24" v-model="registration.underippis">
               <option selected value="1">Select here</option>
               <option value="2">Yes</option>
               <option value="3">No</option>
             </select>
           </div>
-          <div class="mt-2 -ml-10">
-            <label class="">IPPIS Number</label>
-            <input class="rounded border-black border h-8 w-80 ml-5 mt-2" type="text" placeholder="Enter IPPIS number here" v-model="registration.ippisnumber">
+          <div class="mt-2 -ml-20">
+            <label class="mr-3">IPPIS Number</label>
+            <input class="rounded border-black border h-8 w-80 mt-2" type="text" placeholder="Enter IPPIS number here" v-model="registration.ippisnumber">
           </div>
         </div>
         <div class="mt-3">
@@ -249,7 +270,7 @@
                 <option v-for="entry in salarystructure" :key="entry">{{ entry.date }}</option>
             </select>
             </div>
-            <div>
+            <div class="ml-3">
               <label class="block">Grade Level</label>
               <input type="text" class="border border-black rounded w-52 h-8" v-model="register.grade">
             </div>
@@ -403,7 +424,7 @@
     </div>
   </div>
 
-  <div v-if="currentstep === 4">
+  <div v-if="currentstep === 4" class="bg-white h-full py-5">
     <form class="mt-7 ml-16 px-11 grid grid-cols-4">
       <div>
         <label class="mr-1 block">Next of Kin Title</label>
@@ -502,7 +523,7 @@
       <button class="bg-red-600 shadow-md h-11 text-white px-2 py-1 rounded font-bold">Save and Continue Later</button>
     </div>
   </div>
-  <div class="mt-3" v-if="currentstep === 5">
+  <div class="mt-3 py-5 bg-white h-full" v-if="currentstep === 5">
     <div>
       <p class="font-bold text-center text-lg">
         Upload your passport, signature and other supporting 
@@ -720,14 +741,6 @@
           </div>
         </div>
       </div>
-      <div class="mt-3">
-        <label class="block font-bold">Acknowledgement/Cerification</label>
-        <textarea cols="30" rows="4" disabled class="border border-black w-full rounded bg-gray-100">
-          I insert name hereby certify that the information provided or as confirmed by me in this form is true and correct.
-          I further consent and authorize Nigeria Inter-Bank Settlement System Plc and National Identity Management Commission to release my BVN
-          and or NIN information (as may be required) to the National Pension Commission(Pencom) for the maintenance and operation of my
-        </textarea>
-      </div>
     </form>
     <div class="text-right mr-5">
       <button class="bg-yellow-600 shadow-md h-11 mr-2 text-white px-2 py-1 rounded font-bold mt-6" @click.prevent="prev()">Previous Page</button>
@@ -736,8 +749,8 @@
     </div>
   </div>
   
-  <div v-if="currentstep === 6">
-    <div class="mt-4 pl-28">
+  <div v-if="currentstep === 6" class="px-10 py-5 bg-white h-full">
+    <div class="mt-4">
       <!-- <div>
         <p class="text-2xl font-bold text-center">REVIEW PAGE</p>
       </div> -->
@@ -759,7 +772,7 @@
         <div>
           <div><p><span class="font-bold">First name:</span> {{ registration.firstname }}</p></div>
         </div>
-        <div>
+        <div class="mt-2">
           <div><p><span class="font-bold">Middle name:</span> {{ registration.middlename }}</p></div>
         </div>
         <div class="mt-2">
@@ -977,6 +990,19 @@
           </div>
         </div>
       </div>
+      <div>
+        <div>
+        <div><p class="text-lg font-bold text-center bg-gray-500 text-white mt-3 mb-2">ACKNOWLEDGEMENT</p></div>
+        <div class="mt-3">
+          <label class="block font-bold">Acknowledgement/Cerification</label>
+          <textarea cols="30" rows="4" disabled class="border border-black w-full rounded bg-gray-100">
+            I insert name hereby certify that the information provided or as confirmed by me in this form is true and correct.
+            I further consent and authorize Nigeria Inter-Bank Settlement System Plc and National Identity Management Commission to release my BVN
+            and or NIN information (as may be required) to the National Pension Commission(Pencom) for the maintenance and operation of my
+          </textarea>
+        </div>
+      </div>
+      </div>
       </div>
       <div class="text-right mr-5">
       <button class="bg-yellow-600 shadow-md h-11 mr-2 text-white px-2 py-1 rounded font-bold mt-6" @click.prevent="prev()">Previous Page</button>
@@ -1050,27 +1076,26 @@ export default {
 <style>
 
 body {
-  background: linear-gradient(to bottom, #DF5C2E, white, purple);
+  --tw-bg-opacity: 1;
+  background-color: rgba(217, 119, 6, var(--tw-bg-opacity));
 }
 
 .progress-step {
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: 30px;
   height: 30px;
   border-radius: 50%;
   margin-bottom: 20px;
-  color: #fff;
+  color: rgb(214, 203, 181);
   background-color: #DF5C2E;
-  font-weight: bold;
+  font-weight: small;
 }
 
 .active {
-  background-color: #DF5C2E;
-}
-
-.progress-step {
-  color: #555;
-  background-color: #ccc;
+  background-color: white;
+  color: white;
 }
 
 .progress-step::before {
