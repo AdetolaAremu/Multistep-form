@@ -1,83 +1,50 @@
 <template>
   <Appheader />
-  <div class="progress grid grid-cols-6 px-11 mt-3 mb-3">
-    <div
-      class="progress-step"
-      :class="{'active': currentstep >= 1}"
-    >
-      <p></p>
-      <label class="mt-1">PERSONAL DETAILS</label>
-    </div>
-    <div
-      class="progress-step"
-      :class="{'active': currentstep >= 2}"
-    >
-      <p class="text-center"></p>
-      <p class="mt-1">CONTACT ADDRESS</p>
-    </div>
-    <div
-      class="progress-step"
-      :class="{'active': currentstep >= 3}"
-    >
-      <p class="text-center"></p>
-      <p class="mt-1">EMPLOYER</p>
-    </div>
-    <div
-      class="progress-step"
-      :class="{'active': currentstep >= 4}"
-    >
-      <p class="text-center"></p>
-      <p class="mt-1">NEXT OF KIN</p>
-    </div>
-    <div
-      class="progress-step"
-      :class="{'active': currentstep >= 5}"
-    >
-      <p class="text-center"></p>
-      <p class="mt-1">UPLOAD</p>
-    </div>
-    <div
-      class="progress-step"
-      :class="{'active': currentstep >= 6}"
-    >
-      <p class="text-center"></p>
-      <p class="mt-1">REVIEW</p>
-    </div>
+  
+  <div class='container'>
+    <ul class="progressbar">
+      <li :class="{'active': currentstep >= 0}">Step 1</li>
+      <li :class="{'active': currentstep >= 1}">Step 2</li>
+      <li :class="{'active': currentstep >= 2}">Step 3</li>
+      <li :class="{'active': currentstep >= 3}">Step 4</li>
+      <li :class="{'active': currentstep >= 4}">Step 5</li>
+      <li :class="{'active': currentstep >= 5}">Step 6</li>
+    </ul>
   </div>
 
-  <div v-if="currentstep === 1" class="px-20 py-5 bg-white h-full">    
-    <form class="grid grid-cols-4 mt-4 pl-8">
+  <div v-if="currentstep === 0" class="px-20 py-5 mt-28 bg-white h-full">    
+    <form class="grid grid-cols-4 pl-8">
       <div>
         <label class="block">Title</label>
-        <select class="rounded border-black border w-56 h-8" v-model='registration.title'>
-          <option selected>Select title</option>
-          <option>Mr</option>
-          <option>Mrs</option>
-          <option>Miss</option>
+        <select class="rounded border-black border w-56 h-8 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" v-model='registration.title'>
+          <option value=''>{{ selectedtitle }}</option>
+          <option value=''>Mr</option>
+          <option value=''>Mrs</option>
+          <option value=''>Miss</option>
         </select>
       </div>
       <div>
         <label class="mr-1 block">Surname</label>
-        <input class="form-input rounded border-black border w-56 h-8" type="text" v-model="registration.surname">
+        <input class="form-input rounded border-black border w-56 h-8 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" type="text" v-model="registration.surname">
       </div>
       <div>
         <label class="mr-1 block">First Name</label>
-        <input class="form-input rounded border-black border w-56 h-8" type="text" v-model="registration.firstname">
+        <input class="form-input rounded border-black border w-56 h-8 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" type="text" v-model="registration.firstname">
       </div>
       <div>
         <label class="mr-1 block">Middle Name</label>
-        <input class="form-input rounded border-black border w-56 h-8" type="text" v-model="registration.middlename">
+        <input class="form-input rounded border-black border w-56 h-8 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" type="text" v-model="registration.middlename">
       </div>
       <div class="mt-3">
         <label class="mr-1 block">Gender</label>
-        <select class="rounded border-black border w-56 h-8" v-model='registration.gender'>
+        <select class="rounded border-black border w-56 h-8 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" v-model='registration.gender'>
           <option>Male</option>
           <option>Female</option>
         </select>
       </div>
       <div class="mt-3">
         <label class="mr-1 block">Marital Staus</label>
-        <select class="rounded border-black border w-56 h-8" v-model='registration.maritalstatus'>
+        <select class="rounded border-black border w-56 h-8 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" v-model='registration.maritalstatus'>
           <option selected>Select</option>
           <option>Single</option>
           <option>Married</option>
@@ -87,19 +54,19 @@
       </div>
       <div class="mt-3">
         <label class="mr-1 block">Maiden Name</label>
-        <input class="form-input rounded border-black border w-56 h-8" type="text" v-model="registration.maidenname" placeholder="Maiden Name">
+        <input class="form-input rounded border-black border w-56 h-8 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" type="text" v-model="registration.maidenname">
       </div>
       <div class="mt-3">
         <label class="mr-1 block">Place of Birth</label>
-        <input class="rounded border-black border h-8 w-56" type="text" v-model="registration.placeofbirth">
+        <input class="rounded border-black border h-8 w-56 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" type="text" v-model="registration.placeofbirth">
       </div>
       <div class="mt-3">
         <label class="mr-1 block">Date of Birth</label>
-        <input class="form-input rounded border-black border h-8 w-56" type="date" v-model="registration.dob">
+        <input class="form-input rounded border-black border h-8 w-56 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" type="date" v-model="registration.dob">
       </div>
       <div class="mt-3">
         <label class="mr-1 block">Nationality</label>
-        <select class="rounded border-black border w-56 h-8" v-model='registration.nationality'>
+        <select class="rounded border-black border w-56 h-8 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" v-model='registration.nationality'>
           <option selected>Select</option>
           <option>Nigeria</option>
           <option>Austria</option>
@@ -108,7 +75,7 @@
       </div>
       <div class="mt-3">
         <label class="mr-1 block">State of Origin</label>
-        <select class="rounded border-black border w-56 h-8" v-model='registration.stateoforigin'>
+        <select class="rounded border-black border w-56 h-8 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" v-model='registration.stateoforigin'>
           <option>Abia</option>
           <option>Adamawa</option>
           <option>Akwa-Ibom</option>
@@ -116,7 +83,7 @@
       </div>
       <div class="mt-3">
         <label class="mr-1 block">LGA of Origin</label>
-        <select class="rounded border-black border w-56 h-8" v-model='registration.lgaoforigin'>
+        <select class="rounded border-black border w-56 h-8 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" v-model='registration.lgaoforigin'>
           <option>Amuwo Odofin</option>
           <option>Ikorodu</option>
           <option>Kosofe</option>
@@ -124,7 +91,7 @@
       </div>
       <div class="mt-3">
         <label class="mr-1 block">Other PFA</label>
-        <select class="rounded border-black border w-56 h-8" v-model='registration.otherpfa'>
+        <select class="rounded border-black border w-56 h-8 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" v-model='registration.otherpfa'>
           <option selected value="1">Choose PFA</option>
           <option>Stanbic Pension</option>
           <option>ARM</option>
@@ -133,22 +100,22 @@
       </div>
       <div class="mt-3">
         <label class="mr-1 block">Other Pin</label>
-        <input class="rounded border-black border h-8 w-56" type="text" v-model="registration.otherpin">
+        <input class="rounded border-black border h-8 w-56 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" type="text" v-model="registration.otherpin">
       </div>
       <div class="mt-3">
         <label class="mr-1 block">PIN</label>
-        <input class="rounded border-black border h-8 w-56" disabled type="text" v-model="registration.pin">
+        <input class="rounded border-black border h-8 w-56 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" disabled type="text" v-model="registration.pin">
       </div>
       <div class="mt-3">
         <label class="mr-1 block">Physically Challenged</label>
-        <select class="rounded border-black border w-56 h-8" v-model='registration.challenged'>
+        <select class="rounded border-black border w-56 h-8 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" v-model='registration.challenged'>
           <option>No</option>
           <option>Yes</option>
         </select>
       </div>
       <div class="mt-3">
         <label class="mr-1 block">Means of Identification</label>
-        <select class="rounded border-black border w-56 h-8" v-model='registration.moi'>
+        <select class="rounded border-black border w-56 h-8 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" v-model='registration.moi'>
           <option>NIMC</option>
           <option>Voter's Card</option>
           <option>Driver's License</option>
@@ -157,15 +124,15 @@
       </div>
       <div class="mt-3">
         <label class="mr-1 block">Valid Card Number</label>
-        <input class="rounded border-black border h-8 w-56" type="text" v-model="registration.cardnumber">
+        <input class="rounded border-black border h-8 w-56 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" type="text" v-model="registration.cardnumber">
       </div>
       <div class="mt-3">
         <label class="mr-1 block">BVN</label>
-        <input class="rounded border-black border h-8 w-56" type="text" v-model="registration.bvn">
+        <input class="rounded border-black border h-8 w-56 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" type="text" v-model="registration.bvn">
       </div>
       <div class="mt-3">
         <label class="mr-1 block">NIN</label>
-        <input class="rounded border-black border h-8 w-56" type="text" v-model="registration.nin">
+        <input class="rounded border-black border h-8 w-56 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" type="text" v-model="registration.nin">
       </div>
     </form>
     <div class="text-right mr-5">
@@ -174,37 +141,37 @@
     </div>
   </div>
 
-  <div v-if="currentstep === 2" class="bg-white h-full py-5">
+  <div v-if="currentstep === 1" class="bg-white h-full mt-28 py-5">
     <form class="ml-16 px-11">
       <div>
         <label class="mr-2">House Number/Name</label>
-        <input class="rounded border-black border h-8 w-7/12 mt-4 ml-11" type="text" v-model="registration.houseno">
+        <input class="rounded border-black border h-8 w-7/12 mt-4 ml-11 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" type="text" v-model="registration.houseno">
       </div>
       <div>
         <label class="mr-2">Street Name</label>
-        <input class="rounded border-black border h-8 w-7/12 mt-4 ml-28" type="text" v-model="registration.streetname">
+        <input class="rounded border-black border h-8 w-7/12 mt-4 ml-28 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" type="text" v-model="registration.streetname">
       </div>
       <div>
         <label class="mr-2">Village/Town/City</label>
-        <input class="rounded border-black border h-8 w-7/12 mt-4" style="margin-left: 4.7rem" type="text" v-model="registration.villagetown">
+        <input class="rounded border-black border h-8 w-7/12 mt-4 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" style="margin-left: 4.7rem" type="text" v-model="registration.villagetown">
       </div>
       <div>
         <label>Country of Residence</label>
-        <select class="rounded border-black border h-8 w-7/12 mt-4 ml-14" v-model="registration.countryofresidence">
+        <select class="rounded border-black border h-8 w-7/12 mt-4 ml-14 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" v-model="registration.countryofresidence">
           <option selected value="1">Nigeria</option>
           <option value="2">Niger</option>
         </select>
       </div>
       <div>
         <label>State of Residence</label>
-        <select class="rounded border-black border h-8 w-7/12 mt-4" style="margin-left: 4.7rem" v-model="registration.stateofresidence">
+        <select class="rounded border-black border h-8 w-7/12 mt-4 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" style="margin-left: 4.7rem" v-model="registration.stateofresidence">
           <option selected value="1">Abia</option>
           <option value="2">Adamawa</option>
         </select>
       </div>
       <div>
         <label>LGA of Residence</label>
-        <select class="rounded border-black border h-8 w-7/12 mt-4" style="margin-left: 5.1rem" v-model="registration.lgaofresidence">
+        <select class="rounded border-black border h-8 w-7/12 mt-4 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" style="margin-left: 5.1rem" v-model="registration.lgaofresidence">
           <option selected value="1">Surulere</option>
           <option value="2">Shomolu</option>
         </select>
@@ -212,15 +179,15 @@
       <div class="mt-3 grid grid-cols-3">
         <div>
           <label class="block mb-1">Mobile Number</label>
-          <input class="rounded border-black border h-8 w-7/12" type="number" v-model="registration.mobilenumber">
+          <input class="rounded border-black border h-8 w-7/12 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" type="number" v-model="registration.mobilenumber">
         </div>
         <div class="-ml-36 mb-1">
           <label class="block">Alternate Number</label>
-          <input class="rounded border-black border h-8 w-7/12" type="number" v-model="registration.alternatenumber">
+          <input class="rounded border-black border h-8 w-7/12 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" type="number" v-model="registration.alternatenumber">
         </div>
         <div class="-ml-52 mb-1">
           <label class="block">Update Email Address</label>
-          <input class="rounded border-black border h-8 w-6/12" type="email" v-model="registration.emailaddress">
+          <input class="rounded border-black border h-8 w-6/12 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" type="email" v-model="registration.emailaddress">
         </div>
       </div>
     </form>
@@ -231,12 +198,12 @@
     </div>
   </div>
 
-  <div v-if="currentstep === 3" class="bg-white h-full py-5">
+  <div v-if="currentstep === 2" class="bg-white h-full py-5 mt-28">
     <form class="ml-16 px-11">
       <div>
         <label>Select Sector</label>
         <select class="rounded border-black border h-8 w-7/12 mt-4 ml-40" v-model="registration.sector">
-          <option>Select Sector</option>
+          <option selected>Select Sector</option>
           <option>Private</option>
           <option>Federal</option>
           <option>State</option>
@@ -265,10 +232,10 @@
           <div v-for="(register, index) in registration" :key="index" class="grid grid-cols-5">
             <div>
               <label class="block">Salary structure</label>
-              <select class="rounded border-black border h-8 w-60" v-model="register.structure">
+              <select class="rounded border-black border h-8 w-60" v-model="registration.structure">
                 <option selected value="1">Select here</option>
                 <option v-for="entry in salarystructure" :key="entry">{{ entry.date }}</option>
-            </select>
+              </select>
             </div>
             <div class="ml-3">
               <label class="block">Grade Level</label>
@@ -289,7 +256,7 @@
           <button class="bg-purple-600 rounded px-1 py-1 mt-1 w-24 text-white font-bold" @click.prevent="add">ADD</button>
         </div>
       </div>
-      <div class="grid grid-cols-4 mt-2">
+      <div class="grid grid-cols-4 mt-4">
         <div>
           <label class="block">Employer Name</label>
           <input type="text" class="h-8 w-56 rounded border border-black" v-model="registration.employername">
@@ -307,7 +274,7 @@
           <input type="date" class="h-8 w-56 rounded border border-black" v-model="registration.dateofretirement">
         </div>
       </div>
-      <div class="grid grid-cols-4 mt-2">
+      <div class="grid grid-cols-4 mt-4">
         <div>
           <label class="block">Date of First Employment</label>
           <input type="date" class="h-8 w-56 rounded border border-black" v-model="registration.dateofemployment">
@@ -325,7 +292,7 @@
           <input type="date" class="h-8 w-56 rounded border border-black" v-model="registration.currentemployment">
         </div>
       </div>
-      <div class="grid grid-cols-4 mt-2">
+      <div class="grid grid-cols-4 mt-4">
         <div>
           <label class="block">Monthly Total Emolnument</label>
           <input type="text" class="h-8 w-56 rounded border border-black" v-model="registration.totalemolument">
@@ -340,10 +307,10 @@
         </div>
         <div>
           <label class="block">Voluntary Contribution</label>
-          <input type="date" class="h-8 w-56 rounded border border-black" v-model="registration.voluntarycont">
+          <input type="type" class="h-8 w-56 rounded border border-black" v-model="registration.voluntarycont">
         </div>
       </div>
-      <div class="grid grid-cols-4 mt-2">
+      <div class="grid grid-cols-4 mt-4">
         <div>
           <label class="block">Employer Industry</label>
           <input type="text" class="h-8 w-56 rounded border border-black" v-model="registration.employerindustry">
@@ -367,38 +334,38 @@
           </select>
         </div>
         <div>
-          <label class="block font-semibold">Employer Building No/Name</label>
-          <input type="date" class="h-8 w-56 rounded border border-black" v-model="registration.employerbuildingno">
+          <label class="block">Employer Building No/Name</label>
+          <input type="type" class="h-8 w-56 rounded border border-black" v-model="registration.employerbuildingno">
         </div>
       </div>
-      <div class="grid grid-cols-4 mt-2">
+      <div class="grid grid-cols-4 mt-4">
         <div>
-          <label class="block font-semibold">Employer Streetname</label>
+          <label class="block">Employer Streetname</label>
           <input type="text" class="h-8 w-56 rounded border border-black" v-model="registration.employerstreet">
         </div>
         <div>
-          <label class="block font-semibold">Employer Country</label>
+          <label class="block">Employer Country</label>
           <select class="h-8 w-56 rounded border border-black" v-model="registration.employercountry">
             <option value="1" selected>Nigeria</option>
             <option value="2">Australia</option>
           </select>
         </div>
         <div>
-          <label class="block font-semibold">Employer State</label>
+          <label class="block">Employer State</label>
           <select class="h-8 w-56 rounded border border-black" v-model="registration.employerstate">
             <option value="1" selected>Lagos</option>
             <option value="2">Abia</option>
           </select>
         </div>
         <div>
-          <label class="block font-semibold">Employer LGA</label>
+          <label class="block">Employer LGA</label>
           <select class="h-8 w-56 rounded border border-black" v-model="registration.employerlga">
             <option value="1" selected>Somolu</option>
             <option value="2">Ikorodu</option>
           </select>
         </div>
       </div>
-      <div class="grid grid-cols-4 mt-2">
+      <div class="grid grid-cols-4 mt-4">
         <div>
           <label class="block">Village/Town/City</label>
           <input type="text" class="h-8 w-56 rounded border border-black" v-model="registration.villagetowncity">
@@ -409,11 +376,11 @@
         </div>
         <div>
           <label class="block">Employer Contact Number</label>
-          <input type="date" class="h-8 w-56 rounded border border-black" v-model="registration.employercontactno">
+          <input type="text" class="h-8 w-56 rounded border border-black" v-model="registration.employercontactno">
         </div>
         <div>
           <label class="block">Designation</label>
-          <input type="date" class="h-8 w-56 rounded border border-black" v-model="registration.designation">
+          <input type="text" class="h-8 w-56 rounded border border-black" v-model="registration.designation">
         </div>
       </div>
     </form>
@@ -424,7 +391,7 @@
     </div>
   </div>
 
-  <div v-if="currentstep === 4" class="bg-white h-full py-5">
+  <div v-if="currentstep === 3" class="bg-white h-full mt-28 py-5">
     <form class="mt-7 ml-16 px-11 grid grid-cols-4">
       <div>
         <label class="mr-1 block">Next of Kin Title</label>
@@ -523,7 +490,8 @@
       <button class="bg-red-600 shadow-md h-11 text-white px-2 py-1 rounded font-bold">Save and Continue Later</button>
     </div>
   </div>
-  <div class="mt-3 py-5 bg-white h-full" v-if="currentstep === 5">
+
+  <div class="py-5 mt-28 bg-white h-full" v-if="currentstep === 4">
     <div>
       <p class="font-bold text-center text-lg">
         Upload your passport, signature and other supporting 
@@ -538,7 +506,29 @@
               <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
               <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
               </svg>
-              <span class="mt-2 text-sm leading-normal font-bold">Upload Passport</span>
+              <span class="mt-2 text-sm leading-normal font-bold">Upload Passport<span class="font-bold text-lg text-red-600"> *</span></span>
+              <input type='file' class="hidden" @change="onFileChangepassport" />
+            </label>
+          </div>
+        </div>
+        <div>
+          <div class="w-full h-max justify-center bg-grey-lighter">
+            <label  class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+              <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+              </svg>
+              <span class="mt-2 text-sm leading-normal font-bold">Upload Signature<span class="font-bold text-lg text-red-600"> *</span></span>
+              <input type='file' class="hidden"  @change="onFileChangesignature" />
+            </label>
+          </div>
+        </div>
+        <div>
+          <div class="w-full h-max justify-center bg-grey-lighter">
+            <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+              <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+              </svg>
+              <span class="mt-2 text-sm leading-normal font-bold">Birth Certificate<span class="font-bold text-lg text-red-600"> *</span></span>
               <input type='file' class="hidden" />
             </label>
           </div>
@@ -549,29 +539,7 @@
               <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
               <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
               </svg>
-              <span class="mt-2 text-sm leading-normal font-bold">Upload Signature</span>
-              <input type='file' class="hidden" />
-            </label>
-          </div>
-        </div>
-        <div>
-          <div class="w-full h-max justify-center bg-grey-lighter">
-            <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
-              <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-              <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-              </svg>
-              <span class="mt-2 text-sm leading-normal font-bold">Upload Birth Certificate</span>
-              <input type='file' class="hidden" />
-            </label>
-          </div>
-        </div>
-        <div>
-          <div class="w-full h-max justify-center bg-grey-lighter">
-            <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
-              <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-              <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-              </svg>
-              <span class="mt-2 text-sm leading-normal font-bold">Upload Employment Letter</span>
+              <span class="mt-2 text-sm leading-normal font-bold">Employment Letter<span class="font-bold text-lg text-red-600"> *</span></span>
               <input type='file' class="hidden" />
             </label>
           </div>
@@ -582,7 +550,7 @@
               <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
               <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
               </svg>
-              <span class="mt-2 text-sm leading-normal font-bold">Means of Identification</span>
+              <span class="mt-2 text-sm leading-normal font-bold">Means of Identification<span class="font-bold text-lg text-red-600"> *</span></span>
               <input type='file' class="hidden" />
             </label>
           </div>
@@ -593,7 +561,7 @@
               <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
               <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
               </svg>
-              <span class="mt-2 text-sm leading-normal font-bold">UPLOAD Proof of Address</span>
+              <span class="mt-2 text-sm leading-normal font-bold">Proof of Address</span>
               <input type='file' class="hidden" />
             </label>
           </div>
@@ -671,7 +639,7 @@
         </div>
       </div>
       <div class="mt-5">
-        <div><p class="font-bold text-lg">Kindly upload additional/supporting documents here</p></div>
+        <div><p class="font-bold text-lg">Kindly upload additional/supporting documents here (Optional)</p></div>
         <div class="grid grid-cols-4">
           <div class="grid grid-cols-4">
             <div class="w-full h-max justify-center bg-grey-lighter mt-2">
@@ -741,6 +709,10 @@
           </div>
         </div>
       </div>
+      <!-- <input type="file" @change="onFileChange">
+      <div id="preview" class="w-10 h-10 flex justify-center">
+        <img :src="passport" />
+      </div> -->
     </form>
     <div class="text-right mr-5">
       <button class="bg-yellow-600 shadow-md h-11 mr-2 text-white px-2 py-1 rounded font-bold mt-6" @click.prevent="prev()">Previous Page</button>
@@ -749,16 +721,17 @@
     </div>
   </div>
   
-  <div v-if="currentstep === 6" class="px-10 py-5 bg-white h-full">
+  <div v-if="currentstep === 5" class="px-10 py-5 bg-white h-full mt-28">
     <div class="mt-4">
-      <!-- <div>
-        <p class="text-2xl font-bold text-center">REVIEW PAGE</p>
-      </div> -->
       <div>
         <div><p class="text-lg font-bold text-center bg-gray-500 text-white mt-3 mb-2">BIOMETRICS</p></div>
         <div class="grid grid-cols-2">
-          <div class="border border-black h-40 w-40 ml-40"></div>
-          <div class="border border-black h-40 w-40 ml-20"></div>
+          <div class="border border-black h-40 w-40 ml-40">
+            <img :src="passport" />
+          </div>
+          <div class="border border-black h-40 w-40 ml-20">
+            <img :src="signature" />
+          </div>
         </div>
       </div>
       <div><p class="text-lg font-bold text-center bg-gray-500 text-white mt-3 mb-2">PERSONAL INFORMATION</p></div>
@@ -801,9 +774,6 @@
         </div>
         <div class="mt-2">
           <div><p><span class="font-bold">Other PFA:</span> {{ registration.otherpfa }}</p></div>
-        </div>
-        <div class="mt-2">
-          <div><p><span class="font-bold">Pin:</span> {{ registration.pin }}</p></div>
         </div>
         <div class="mt-2">
           <div><p><span class="font-bold">Physically Challenged:</span> {{ registration.challenged }}</p></div>
@@ -995,124 +965,247 @@
         <div><p class="text-lg font-bold text-center bg-gray-500 text-white mt-3 mb-2">ACKNOWLEDGEMENT</p></div>
         <div class="mt-3">
           <label class="block font-bold">Acknowledgement/Cerification</label>
-          <textarea cols="30" rows="4" disabled class="border border-black w-full rounded bg-gray-100">
-            I insert name hereby certify that the information provided or as confirmed by me in this form is true and correct.
+          <textarea cols="30" rows="3" disabled class="border border-black w-full rounded bg-gray-100">
+            I (insert name) hereby certify that the information provided or as confirmed by me in this form is true and correct.
             I further consent and authorize Nigeria Inter-Bank Settlement System Plc and National Identity Management Commission to release my BVN
             and or NIN information (as may be required) to the National Pension Commission(Pencom) for the maintenance and operation of my
           </textarea>
+          <div>
+            <input type="checkbox" class="checked:bg-blue-600 checked:border-transparent rounded h-4 w-4">
+            <label class="ml-3 font-bold">I Agree</label>
+          </div>
         </div>
       </div>
       </div>
       </div>
       <div class="text-right mr-5">
       <button class="bg-yellow-600 shadow-md h-11 mr-2 text-white px-2 py-1 rounded font-bold mt-6" @click.prevent="prev()">Previous Page</button>
-      <button class="bg-green-600 shadow-md h-11 mr-2 text-white px-2 py-1 rounded font-bold mt-6 w-40" @click.prevent="next()">Submit</button>
+      <button class="bg-green-600 shadow-md h-11 mr-2 text-white px-2 py-1 rounded font-bold mt-6 w-40">Submit</button>
     </div>
     </div>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue';
+// import { ref } from 'vue';
 import Appheader from './components/Appheader';
 export default {
   components:{ Appheader },
-  setup(){
-    const currentstep = ref(1)
-    
-    const salarystructure = ref([
-      {date: '2019'},
-      {date: '2016'},
-      {date: '2013'},
-      {date: '2010'},
-      {date: '2007'},
-      {date: '2004'}
-    ]);
+  data(){
+    return {
+      currentstep:0,
+      selectedtitle:'Select title',
+      passport:'',
+      signature:'',
+      salarystructure: [
+        {date: '2019'},
+        {date: '2016'},
+        {date: '2013'},
+        {date: '2010'},
+        {date: '2007'},
+        {date: '2004'}
+      ],
 
-    const sectors = ref([
-      {name:'Private', value:'1'},
-      {name:'Federal', value:'2'},
-      {name:'Cross-border', value:'3'},
-      {name:'Informal', value:'4'},
-      {name:'Others', value:'5'}
-    ])
+      sectors: [
+        {name:'Private', value:'1'},
+        {name:'Federal', value:'2'},
+        {name:'Cross-border', value:'3'},
+        {name:'Informal', value:'4'},
+        {name:'Others', value:'5'}
+      ],
 
-    const add = () => {
-      registration.value.push({structure:'', grade:'', step:'', salary:''})
+      registration: [
+        {
+          title:'', firstname:'', middlename:'', gender:'', maritalstatus:'', maidenname:'', placeofbirth:'', dob:'', nationality:'',
+          stateoforigin:'', lgaoforigin:'', otherpfa:'', otherpin:'', pin:'', challenged:'', moi:'', cardnumber:'', bvn:'', nin:'',
+          houseno:'', streetname:'', villagetown:'', countryofresidence:'', stateofresidence:'', lgaofresidence:'', mobilenumber:'',
+          alternatenumber:'', emailaddress:'', sector:'', serviceid:'', underippis:'', structure:'', grade:'', step:'', salary:'',
+          employername:'', employerid:'', employercode:'', dateofretirement:'', dateofemployment:'', dateofappointment:'', servicetransfer:'',
+          currentemployment:'', totalemolument:'', employercont:'', employeecont:'', voluntarycont:'', employerindustry:'', qualification:'',
+          occupation:'', employerbuildingno:'', employerstreet:'', employercountry:'', employerstate:'', employerlga:'', villagetowncity:'',
+          postalcode:'', employercontactno:'', designation:'', noktitle:'', noksurname:'', nokfirstname:'', nokmiddlename:'', nokgender:'',
+          nokrelationship:'', noknumber:'', nokalternatenumber:'', nokemail:'', noknationality:'', nokstateofresidence:'', noklgaofresidence:'',
+          nokvillage:'', nokpostalcode:'', nokhouseno:'', nokstreetname:''
+        }
+      ],
     }
-
-    const remove = (index) => {
-      registration.value.splice(index, 1)
+  },
+  methods: {
+    next() {
+      this.currentstep++
+    },
+    prev(){
+      this.currentstep--
+    },
+    fileselected(e){
+      this.file = e.target.file[0].name
+    },
+    onFileChangepassport(event) {    	   
+      const data = URL.createObjectURL(event.target.files[0]);
+      this.passport = data;
+    },
+    onFileChangesignature(event) {    	   
+      const data = URL.createObjectURL(event.target.files[0]);
+      this.signature = data;
+    },
+    add(){
+      this.registration.push({structure:'', grade:'', step:'', salary:''})
+    },
+    remove(index){
+      this.registration.splice(index, 1)
     }
-
-    const registration = ref([
-      {
-        title:'', firstname:'', middlename:'', gender:'', maritalstatus:'', maidenname:'', placeofbirth:'', dob:'', nationality:'',
-        stateoforigin:'', lgaoforigin:'', otherpfa:'', otherpin:'', pin:'', challenged:'', moi:'', cardnumber:'', bvn:'', nin:'',
-        houseno:'', streetname:'', villagetown:'', countryofresidence:'', stateofresidence:'', lgaofresidence:'', mobilenumber:'',
-        alternatenumber:'', emailaddress:'', sector:'', serviceid:'', underippis:'', structure:'', grade:'', step:'', salary:'',
-        employername:'', employerid:'', employercode:'', dateofretirement:'', dateofemployment:'', dateofappointment:'', servicetransfer:'',
-        currentemployment:'', totalemolument:'', employercont:'', employeecont:'', voluntarycont:'', employerindustry:'', qualification:'',
-        occupation:'', employerbuildingno:'', employerstreet:'', employercountry:'', employerstate:'', employerlga:'', villagetowncity:'',
-        postalcode:'', employercontactno:'', designation:'', noktitle:'', noksurname:'', nokfirstname:'', nokmiddlename:'', nokgender:'',
-        nokrelationship:'', noknumber:'', nokalternatenumber:'', nokemail:'', noknationality:'', nokstateofresidence:'', noklgaofresidence:'',
-        nokvillage:'', nokpostalcode:'', nokhouseno:'', nokstreetname:''
-      }
-    ])
-
-    function next() {
-      currentstep.value++
-    }
-
-    function prev() {
-      currentstep.value--
-    }
-
-    return {currentstep, registration, next, prev, salarystructure, add, remove, sectors}
-  }
+  },
 }
+//   setup(){
+//     const currentstep = ref(1)
+//     const file = ref([])
+//     const url = ref('')
+//     const salarystructure = ref([
+//       {date: '2019'},
+//       {date: '2016'},
+//       {date: '2013'},
+//       {date: '2010'},
+//       {date: '2007'},
+//       {date: '2004'}
+//     ]);
+
+//     const sectors = ref([
+//       {name:'Private', value:'1'},
+//       {name:'Federal', value:'2'},
+//       {name:'Cross-border', value:'3'},
+//       {name:'Informal', value:'4'},
+//       {name:'Others', value:'5'}
+//     ])
+
+//     const add = () => {
+//       registration.value.push({structure:'', grade:'', step:'', salary:''})
+//     }
+       
+
+//     const remove = (index) => {
+//       registration.value.splice(index, 1)
+//     }
+
+//     const registration = ref([
+//       {
+//         title:'', firstname:'', middlename:'', gender:'', maritalstatus:'', maidenname:'', placeofbirth:'', dob:'', nationality:'',
+//         stateoforigin:'', lgaoforigin:'', otherpfa:'', otherpin:'', pin:'', challenged:'', moi:'', cardnumber:'', bvn:'', nin:'',
+//         houseno:'', streetname:'', villagetown:'', countryofresidence:'', stateofresidence:'', lgaofresidence:'', mobilenumber:'',
+//         alternatenumber:'', emailaddress:'', sector:'', serviceid:'', underippis:'', structure:'', grade:'', step:'', salary:'',
+//         employername:'', employerid:'', employercode:'', dateofretirement:'', dateofemployment:'', dateofappointment:'', servicetransfer:'',
+//         currentemployment:'', totalemolument:'', employercont:'', employeecont:'', voluntarycont:'', employerindustry:'', qualification:'',
+//         occupation:'', employerbuildingno:'', employerstreet:'', employercountry:'', employerstate:'', employerlga:'', villagetowncity:'',
+//         postalcode:'', employercontactno:'', designation:'', noktitle:'', noksurname:'', nokfirstname:'', nokmiddlename:'', nokgender:'',
+//         nokrelationship:'', noknumber:'', nokalternatenumber:'', nokemail:'', noknationality:'', nokstateofresidence:'', noklgaofresidence:'',
+//         nokvillage:'', nokpostalcode:'', nokhouseno:'', nokstreetname:''
+//       }
+//     ])
+
+//     function next() {
+//       currentstep.value++
+//     }
+
+//     function prev() {
+//       currentstep.value--
+//     }
+
+//     const fileselected = (e) => {
+//       file.value = e.target.file.value[0].name
+//     }
+
+//     function onfilechange(e) {
+//       const file = e.target.files[0];
+//       url.value = URL.createObjectURL(file);
+//     }
+
+//     return {currentstep, registration, next, prev, salarystructure, add, remove, sectors, fileselected, file, onfilechange}
+//   }
+// }
 </script>
 
 <style>
 
-body {
-  --tw-bg-opacity: 1;
-  background-color: rgba(217, 119, 6, var(--tw-bg-opacity));
+.container{
+  width: 100%;
+  position: absolute;
+  z-index: 1;
 }
 
-.progress-step {
+.progressbar li{
+  float: left;
+  width: 15%;
   position: relative;
-  display: flex;
-  flex-direction: column;
+  text-align: center;
+}
+
+.progressbar li:before{
+  content:"";
   width: 30px;
   height: 30px;
-  border-radius: 50%;
-  margin-bottom: 20px;
-  color: rgb(214, 203, 181);
-  background-color: #DF5C2E;
-  font-weight: small;
 }
 
-.active {
-  background-color: white;
+.progressbar li:before{
+  content:"";
+  width: 20px;
+  height: 30px;
+  border: 2px solid #bebebe;
+  display: block;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  line-height: 27px;
+  background: white;
+  color: #bebebe;
+  text-align: center;
+  font-weight: bold;
+}
+
+.progressbar{
+  counter-reset: step;
+}
+
+.progressbar li:before{
+  content:counter(step);
+  counter-increment: step;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #bebebe;
+  display: block;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  line-height: 27px;
+  background: white;
+  color: #bebebe;
+  text-align: center;
+  font-weight: bold;
+}
+
+.progressbar li:after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: #979797;
+  top: 15px;
+  left: -50%;
+  z-index: -1;
+}
+
+.progressbar li:first-child::after{
+  display: none;
+}
+
+.progressbar li.active + li::after{
+  background: #3aac5d;
+}
+
+.progressbar li.active + li::before{
+  border-color: #3aac5d;
+  background: #3aac5d;
   color: white;
 }
 
-.progress-step::before {
-  background-color: #ccc;
-}
-
-:before {
-  content: '';
-  position: absolute;
-  top: -10px;
-  width: 2px;
-  height: 20px;
-  background: #DF5C2E;
-  z-index: 10;
-}
-
-:first-child::before {
-  display: none;
+body {
+  --tw-bg-opacity: 1;
+  background-color: rgba(217, 119, 6, var(--tw-bg-opacity));
 }
 </style>
