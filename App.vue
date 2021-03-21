@@ -3,24 +3,24 @@
   
   <div class='container'>
     <ul class="progressbar">
-      <li :class="{'active': currentstep >= 0}">Step 1</li>
-      <li :class="{'active': currentstep >= 1}">Step 2</li>
-      <li :class="{'active': currentstep >= 2}">Step 3</li>
-      <li :class="{'active': currentstep >= 3}">Step 4</li>
-      <li :class="{'active': currentstep >= 4}">Step 5</li>
-      <li :class="{'active': currentstep >= 5}">Step 6</li>
+      <li :class="{'active': currentstep === 1}"><p>Step 1</p></li>
+      <li :class="{'active': currentstep === 2}"><p>Step 2</p></li>
+      <li :class="{'active': currentstep === 3}"><p>Step 3</p></li>
+      <li :class="{'active': currentstep === 4}"><p>Step 4</p></li>
+      <li :class="{'active': currentstep === 5}"><p>Step 5</p></li>
+      <li :class="{'active': currentstep === 6}"><p>Step 6</p></li>
     </ul>
   </div>
 
-  <div v-if="currentstep === 0" class="px-20 py-5 mt-28 bg-white h-full">    
-    <form class="grid grid-cols-4 pl-8">
+  <div v-show="currentstep === 1" class="px-20 py-5 mt-28 bg-white h-full">    
+    <form class="grid grid-cols-1 pl-8 -ml-14 sm:grid-cols-4">
       <div>
         <label class="block">Title</label>
         <select class="rounded border-black border w-56 h-8 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" v-model='registration.title'>
-          <option value=''>{{ selectedtitle }}</option>
-          <option value=''>Mr</option>
-          <option value=''>Mrs</option>
-          <option value=''>Miss</option>
+          <option disabled value=''>Select title</option>
+          <option>Mr</option>
+          <option>Mrs</option>
+          <option>Miss</option>
         </select>
       </div>
       <div>
@@ -38,6 +38,7 @@
       <div class="mt-3">
         <label class="mr-1 block">Gender</label>
         <select class="rounded border-black border w-56 h-8 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" v-model='registration.gender'>
+          <option disabled value="">Choose Gender</option>
           <option>Male</option>
           <option>Female</option>
         </select>
@@ -45,7 +46,7 @@
       <div class="mt-3">
         <label class="mr-1 block">Marital Staus</label>
         <select class="rounded border-black border w-56 h-8 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" v-model='registration.maritalstatus'>
-          <option selected>Select</option>
+          <option disabled value="">Select Marital Status</option>
           <option>Single</option>
           <option>Married</option>
           <option>Divorced</option>
@@ -67,7 +68,7 @@
       <div class="mt-3">
         <label class="mr-1 block">Nationality</label>
         <select class="rounded border-black border w-56 h-8 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" v-model='registration.nationality'>
-          <option selected>Select</option>
+          <option selected value="">Select Nationaality</option>
           <option>Nigeria</option>
           <option>Austria</option>
           <option>Australia</option>
@@ -76,6 +77,7 @@
       <div class="mt-3">
         <label class="mr-1 block">State of Origin</label>
         <select class="rounded border-black border w-56 h-8 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" v-model='registration.stateoforigin'>
+          <option selected value="">Select State of Origin</option>
           <option>Abia</option>
           <option>Adamawa</option>
           <option>Akwa-Ibom</option>
@@ -84,6 +86,7 @@
       <div class="mt-3">
         <label class="mr-1 block">LGA of Origin</label>
         <select class="rounded border-black border w-56 h-8 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" v-model='registration.lgaoforigin'>
+          <option selected value="">Select LGA of Origin</option>
           <option>Amuwo Odofin</option>
           <option>Ikorodu</option>
           <option>Kosofe</option>
@@ -92,7 +95,7 @@
       <div class="mt-3">
         <label class="mr-1 block">Other PFA</label>
         <select class="rounded border-black border w-56 h-8 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" v-model='registration.otherpfa'>
-          <option selected value="1">Choose PFA</option>
+          <option selected value="">Choose PFA</option>
           <option>Stanbic Pension</option>
           <option>ARM</option>
           <option>PAL</option>
@@ -109,6 +112,7 @@
       <div class="mt-3">
         <label class="mr-1 block">Physically Challenged</label>
         <select class="rounded border-black border w-56 h-8 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" v-model='registration.challenged'>
+          <option selected value="">Select</option>
           <option>No</option>
           <option>Yes</option>
         </select>
@@ -116,6 +120,7 @@
       <div class="mt-3">
         <label class="mr-1 block">Means of Identification</label>
         <select class="rounded border-black border w-56 h-8 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" v-model='registration.moi'>
+          <option selected value="">Select MOI</option>
           <option>NIMC</option>
           <option>Voter's Card</option>
           <option>Driver's License</option>
@@ -141,7 +146,7 @@
     </div>
   </div>
 
-  <div v-if="currentstep === 1" class="bg-white h-full mt-28 py-5">
+  <div v-show="currentstep === 2" class="bg-white h-full mt-28 py-5">
     <form class="ml-16 px-11">
       <div>
         <label class="mr-2">House Number/Name</label>
@@ -158,21 +163,21 @@
       <div>
         <label>Country of Residence</label>
         <select class="rounded border-black border h-8 w-7/12 mt-4 ml-14 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" v-model="registration.countryofresidence">
-          <option selected value="1">Nigeria</option>
-          <option value="2">Niger</option>
+          <option selected value="">Nigeria</option>
+          <option>Niger</option>
         </select>
       </div>
       <div>
         <label>State of Residence</label>
         <select class="rounded border-black border h-8 w-7/12 mt-4 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" style="margin-left: 4.7rem" v-model="registration.stateofresidence">
-          <option selected value="1">Abia</option>
+          <option selected value="">Abia</option>
           <option value="2">Adamawa</option>
         </select>
       </div>
       <div>
         <label>LGA of Residence</label>
         <select class="rounded border-black border h-8 w-7/12 mt-4 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" style="margin-left: 5.1rem" v-model="registration.lgaofresidence">
-          <option selected value="1">Surulere</option>
+          <option selected value="">Surulere</option>
           <option value="2">Shomolu</option>
         </select>
       </div>
@@ -198,18 +203,18 @@
     </div>
   </div>
 
-  <div v-if="currentstep === 2" class="bg-white h-full py-5 mt-28">
+  <div v-if="currentstep === 3" class="bg-white h-full py-5 mt-28">
     <form class="ml-16 px-11">
       <div>
         <label>Select Sector</label>
         <select class="rounded border-black border h-8 w-7/12 mt-4 ml-40" v-model="registration.sector">
-          <option selected>Select Sector</option>
+          <option disabled value="">Select Sector</option>
           <option>Private</option>
           <option>Federal</option>
           <option>State</option>
         </select>
       </div>
-      <div v-if="registration.sector !== 'Private'">
+      <div v-show="registration.sector !== 'Private'">
         <div >
           <label class="mr-2">Service ID No(Police/Paramilitary)</label>
           <input class="rounded border-black border h-8 w-7/12 mt-4 ml-2" type="text" v-model="registration.serviceid">
@@ -218,9 +223,9 @@
           <div>
             <label>Customer Under IPPIS</label>
             <select class="rounded border-black border h-8 w-52 mt-4 ml-24" v-model="registration.underippis">
-              <option selected value="1">Select here</option>
-              <option value="2">Yes</option>
-              <option value="3">No</option>
+              <option disabled value="">Select here</option>
+              <option>Yes</option>
+              <option>No</option>
             </select>
           </div>
           <div class="mt-2 -ml-20">
@@ -229,11 +234,11 @@
           </div>
         </div>
         <div class="mt-3">
-          <div v-for="(register, index) in registration" :key="index" class="grid grid-cols-5">
+          <div v-for="(register, index) in reel" :key="index" class="grid grid-cols-5">
             <div>
               <label class="block">Salary structure</label>
-              <select class="rounded border-black border h-8 w-60" v-model="registration.structure">
-                <option selected value="1">Select here</option>
+              <select class="rounded border-black border h-8 w-60" v-model="register.structure">
+                <option disabled value="">Select here</option>
                 <option v-for="entry in salarystructure" :key="entry">{{ entry.date }}</option>
               </select>
             </div>
@@ -318,19 +323,21 @@
         <div>
           <label class="block">Qualification</label>
           <select class="h-8 w-56 rounded border border-black" v-model="registration.qualification">
-            <option value="1" selected>Bsc</option>
-            <option value="2">HND</option>
-            <option value="3">PGD</option>
-            <option value="4">Msc</option>
-            <option value="5">MBA</option>
-            <option value="6">Ssce</option>
+            <option disabled value="">Select Qualification</option>
+            <option>Bsc</option>
+            <option>HND</option>
+            <option>PGD</option>
+            <option>Msc</option>
+            <option>MBA</option>
+            <option>Ssce</option>
           </select>
         </div>
         <div>
           <label class="block">Occupation</label>
           <select class="h-8 w-56 rounded border border-black" v-model="registration.occupation">
-            <option value="1" selected>Banker</option>
-            <option value="2">Admin</option>
+            <option disabled value="">Select Occupation</option>
+            <option>Banker</option>
+            <option>Admin</option>
           </select>
         </div>
         <div>
@@ -346,21 +353,21 @@
         <div>
           <label class="block">Employer Country</label>
           <select class="h-8 w-56 rounded border border-black" v-model="registration.employercountry">
-            <option value="1" selected>Nigeria</option>
-            <option value="2">Australia</option>
+            <option value="">Nigeria</option>
+            <option>Australia</option>
           </select>
         </div>
         <div>
           <label class="block">Employer State</label>
           <select class="h-8 w-56 rounded border border-black" v-model="registration.employerstate">
-            <option value="1" selected>Lagos</option>
+            <option value="">Lagos</option>
             <option value="2">Abia</option>
           </select>
         </div>
         <div>
           <label class="block">Employer LGA</label>
           <select class="h-8 w-56 rounded border border-black" v-model="registration.employerlga">
-            <option value="1" selected>Somolu</option>
+            <option value="">Somolu</option>
             <option value="2">Ikorodu</option>
           </select>
         </div>
@@ -391,12 +398,12 @@
     </div>
   </div>
 
-  <div v-if="currentstep === 3" class="bg-white h-full mt-28 py-5">
+  <div v-show="currentstep === 4" class="bg-white h-full mt-28 py-5">
     <form class="mt-7 ml-16 px-11 grid grid-cols-4">
       <div>
         <label class="mr-1 block">Next of Kin Title</label>
         <select class="rounded border-black border w-56 h-8" v-model='registration.noktitle'>
-          <option selected>Select title</option>
+          <option disabled value="">Select title</option>
           <option>Mr</option>
           <option>Mrs</option>
           <option>Miss</option>
@@ -417,6 +424,7 @@
       <div class="mt-3">
         <label class="mr-1 block">Next of kin Gender</label>
         <select class="rounded border-black border w-56 h-8" v-model='registration.nokgender'>
+          <option disabled value="">Select Gender</option>
           <option>Male</option>
           <option>Female</option>
         </select>
@@ -424,7 +432,7 @@
       <div>
         <label class="mr-1 block">Next of Kin Relationship</label>
         <select class="rounded border-black border w-56 h-8" v-model='registration.nokrelationship'>
-          <option selected>Select Relationship</option>
+          <option disabled value="">Select Relationship</option>
           <option>Spouse</option>
           <option>Husband</option>
           <option>Wife</option>
@@ -445,8 +453,7 @@
       <div class="mt-3">
         <label class="mr-1 block">Next of Kin Nationality</label>
         <select class="rounded border-black border w-56 h-8" v-model='registration.noknationality'>
-          <option selected>Select Country</option>
-          <option>Nigeria</option>
+          <option value="">Nigeria</option>
           <option>Austria</option>
           <option>Australia</option>
         </select>
@@ -454,7 +461,7 @@
       <div class="mt-3">
         <label class="mr-1 block">Next of Kin State of Residence</label>
         <select class="rounded border-black border w-56 h-8" v-model='registration.nokstateofresidence'>
-          <option>Abia</option>
+          <option value="">Abia</option>
           <option>Adamawa</option>
           <option>Akwa-Ibom</option>
         </select>
@@ -462,7 +469,7 @@
       <div class="mt-3">
         <label class="mr-1 block">Next of Kin LGA of Residence</label>
         <select class="rounded border-black border w-56 h-8" v-model='registration.noklgaofresidence'>
-          <option>Amuwo Odofin</option>
+          <option disabled value="">Amuwo Odofin</option>
           <option>Ikorodu</option>
           <option>Kosofe</option>
         </select>
@@ -491,7 +498,7 @@
     </div>
   </div>
 
-  <div class="py-5 mt-28 bg-white h-full" v-if="currentstep === 4">
+  <div class="py-5 mt-28 bg-white h-full" v-show="currentstep === 5">
     <div>
       <p class="font-bold text-center text-lg">
         Upload your passport, signature and other supporting 
@@ -501,139 +508,139 @@
     <form class="mt-5 ml-16 px-11">
       <div class="grid grid-cols-4">
         <div>
-          <div class="w-full h-max justify-center bg-grey-lighter">
-            <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
-              <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-              <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-              </svg>
+          <div class="w-64 h-36 justify-center bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 hover:bg-blue-700 hover:text-white overflow-x-hidden">
+            <label class="w-64 flex flex-col items-center px-3 py-2 cursor-pointer">
               <span class="mt-2 text-sm leading-normal font-bold">Upload Passport<span class="font-bold text-lg text-red-600"> *</span></span>
-              <input type='file' class="hidden" @change="onFileChangepassport" />
-            </label>
-          </div>
-        </div>
-        <div>
-          <div class="w-full h-max justify-center bg-grey-lighter">
-            <label  class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
               <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
               <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
               </svg>
+            </label>
+            <input class="ml-2 py-2" type='file' @change="onFileChangepassport" />
+          </div>
+        </div>
+        <div>
+          <div class="w-64 h-36 justify-center bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 hover:bg-blue-700 hover:text-white overflow-x-hidden">
+            <label class="w-64 flex flex-col items-center px-3 py-2 cursor-pointer">
               <span class="mt-2 text-sm leading-normal font-bold">Upload Signature<span class="font-bold text-lg text-red-600"> *</span></span>
-              <input type='file' class="hidden"  @change="onFileChangesignature" />
-            </label>
-          </div>
-        </div>
-        <div>
-          <div class="w-full h-max justify-center bg-grey-lighter">
-            <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
               <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
               <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
               </svg>
+            </label>
+            <input class="ml-2 py-2" type='file' @change="onFileChangesignature" />
+          </div>
+        </div>
+        <div>
+          <div class="w-64 h-36 justify-center bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 hover:bg-blue-700 hover:text-white overflow-x-hidden">
+            <label class="w-64 flex flex-col items-center px-3 py-2 cursor-pointer">
               <span class="mt-2 text-sm leading-normal font-bold">Birth Certificate<span class="font-bold text-lg text-red-600"> *</span></span>
-              <input type='file' class="hidden" />
-            </label>
-          </div>
-        </div>
-        <div>
-          <div class="w-full h-max justify-center bg-grey-lighter">
-            <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
               <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
               <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
               </svg>
+            </label>
+            <input class="ml-2 py-2" type='file'>
+          </div>
+        </div>
+        <div>
+          <div class="w-64 h-36 justify-center bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 hover:bg-blue-700 hover:text-white overflow-x-hidden">
+            <label class="w-64 flex flex-col items-center px-3 py-2 cursor-pointer">
               <span class="mt-2 text-sm leading-normal font-bold">Employment Letter<span class="font-bold text-lg text-red-600"> *</span></span>
-              <input type='file' class="hidden" />
-            </label>
-          </div>
-        </div>
-        <div>
-          <div class="w-full h-max justify-center bg-grey-lighter mt-2">
-            <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
               <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
               <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
               </svg>
+            </label>
+            <input class="ml-2 py-2" type='file'>
+          </div>
+        </div>
+        <div class="mt-1">
+          <div class="w-64 h-36 justify-center bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 hover:bg-blue-700 hover:text-white overflow-x-hidden">
+            <label class="w-64 flex flex-col items-center px-3 py-2">
               <span class="mt-2 text-sm leading-normal font-bold">Means of Identification<span class="font-bold text-lg text-red-600"> *</span></span>
-              <input type='file' class="hidden" />
-            </label>
-          </div>
-        </div>
-        <div>
-          <div class="w-full h-max justify-center bg-grey-lighter mt-2">
-            <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
               <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
               <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
               </svg>
-              <span class="mt-2 text-sm leading-normal font-bold">Proof of Address</span>
-              <input type='file' class="hidden" />
             </label>
+            <input class="ml-2 py-2" type='file'>
+          </div>
+        </div>
+        <div class="mt-1">
+          <div class="w-64 h-36 justify-center bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 hover:bg-blue-700 hover:text-white overflow-x-hidden">
+            <label class="w-64 flex flex-col items-center px-3 py-2 cursor-pointer">
+              <span class="mt-2 text-sm leading-normal font-bold">Proof of Address<span class="font-bold text-lg text-red-600"> *</span></span>
+              <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+              </svg>
+            </label>
+            <input class="ml-2 py-2" type='file'>
           </div>
         </div>
       </div>
       <div v-if="registration.sector !== 'Private'" class="mt-5">
         <div><p class="font-bold text-lg">Public Sector participant, upload salary structure as stated in the upload boxes below</p></div>
         <div class="grid grid-cols-4">
-          <div class="grid grid-cols-4">
-            <div class="w-full h-max justify-center bg-grey-lighter mt-2">
-              <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+          <div>
+            <div class="w-64 h-36 justify-center bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 hover:bg-blue-700 hover:text-white overflow-x-hidden">
+              <label class="w-64 flex flex-col items-center px-3 py-2">
+                <span class="mt-2 text-sm leading-normal font-bold">Harmonized Salary 2004<span class="font-bold text-lg text-red-600"> *</span></span>
                 <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                 <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                 </svg>
-                <span class="mt-2 text-sm leading-normal font-bold">Harmonized Salary 2004</span>
-                <input type='file' class="hidden" />
               </label>
+              <input class="ml-2 py-2" type='file'>
             </div>
           </div>
           <div>
-            <div class="w-full h-max justify-center bg-grey-lighter mt-2">
-              <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+            <div class="w-64 h-36 justify-center bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 hover:bg-blue-700 hover:text-white overflow-x-hidden">
+              <label class="w-64 flex flex-col items-center px-3 py-2">
+                <span class="mt-2 text-sm leading-normal font-bold">Consolidated Salary 2007<span class="font-bold text-lg text-red-600"> *</span></span>
                 <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                 <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                 </svg>
-                <span class="mt-2 text-sm leading-normal font-bold">Consolidated Salary 2007</span>
-                <input type='file' class="hidden" />
               </label>
+              <input class="ml-2 py-2" type='file'>
             </div>
           </div>
           <div>
-            <div class="w-full h-max justify-center bg-grey-lighter mt-2">
-              <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+            <div class="w-64 h-36 justify-center bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 hover:bg-blue-700 hover:text-white overflow-x-hidden">
+              <label class="w-64 flex flex-col items-center px-3 py-2">
+                <span class="mt-2 text-sm leading-normal font-bold">Consolidated Salary 2010<span class="font-bold text-lg text-red-600"> *</span></span>
                 <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                 <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                 </svg>
-                <span class="mt-2 text-sm leading-normal font-bold">Consolidated Salary 2010</span>
-                <input type='file' class="hidden" />
               </label>
+              <input class="ml-2 py-2" type='file'>
             </div>
           </div>
           <div>
-            <div class="w-full h-max justify-center bg-grey-lighter mt-2">
-              <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+            <div class="w-64 h-36 justify-center bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 hover:bg-blue-700 hover:text-white overflow-x-hidden">
+              <label class="w-64 flex flex-col items-center px-3 py-2">
+                <span class="mt-2 text-sm leading-normal font-bold">Harmonized Salary 2013<span class="font-bold text-lg text-red-600"> *</span></span>
                 <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                 <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                 </svg>
-                <span class="mt-2 text-sm leading-normal font-bold">Harmonized Salary 2013</span>
-                <input type='file' class="hidden" />
               </label>
+              <input class="ml-2 py-2" type='file'>
             </div>
           </div>
-          <div>
-            <div class="w-full h-max justify-center bg-grey-lighter mt-2">
-              <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+          <div class="mt-1">
+            <div class="w-64 h-36 justify-center bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 hover:bg-blue-700 hover:text-white overflow-x-hidden">
+              <label class="w-64 flex flex-col items-center px-3 py-2">
+                <span class="mt-2 text-sm leading-normal font-bold">Harmonized Salary 2016<span class="font-bold text-lg text-red-600"> *</span></span>
                 <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                 <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                 </svg>
-                <span class="mt-2 text-sm leading-normal font-bold">Harmonized Salary 2016</span>
-                <input type='file' class="hidden" />
               </label>
+              <input class="ml-2 py-2" type='file'>
             </div>
           </div>
-          <div>
-            <div class="w-full h-max justify-center bg-grey-lighter mt-2">
-              <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
+          <div class="mt-1">
+            <div class="w-64 h-36 justify-center bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 hover:bg-blue-700 hover:text-white overflow-x-hidden">
+              <label class="w-64 flex flex-col items-center px-3 py-2">
+                <span class="mt-2 text-sm leading-normal font-bold">Current Salary<span class="font-bold text-lg text-red-600"> *</span></span>
                 <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                 <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                 </svg>
-                <span class="mt-2 text-sm leading-normal font-bold">Current Salary 2019</span>
-                <input type='file' class="hidden" />
               </label>
+              <input class="ml-2 py-2" type='file'>
             </div>
           </div>
         </div>
@@ -641,78 +648,74 @@
       <div class="mt-5">
         <div><p class="font-bold text-lg">Kindly upload additional/supporting documents here (Optional)</p></div>
         <div class="grid grid-cols-4">
-          <div class="grid grid-cols-4">
-            <div class="w-full h-max justify-center bg-grey-lighter mt-2">
-              <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
-                <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-                </svg>
+          <div>
+            <div class="w-64 h-36 justify-center bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 hover:bg-blue-700 hover:text-white overflow-x-hidden">
+              <label class="w-64 flex flex-col items-center px-3 py-2">
                 <span class="mt-2 text-sm leading-normal font-bold">Additional Document 1</span>
-                <input type='file' class="hidden" />
-              </label>
-            </div>
-          </div>
-          <div>
-            <div class="w-full h-max justify-center bg-grey-lighter mt-2">
-              <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
                 <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                 <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                 </svg>
+              </label>
+              <input class="ml-2 py-2" type='file'>
+            </div>
+          </div>
+          <div>
+            <div class="w-64 h-36 justify-center bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 hover:bg-blue-700 hover:text-white overflow-x-hidden">
+              <label class="w-64 flex flex-col items-center px-3 py-2">
                 <span class="mt-2 text-sm leading-normal font-bold">Additional Document 2</span>
-                <input type='file' class="hidden" />
-              </label>
-            </div>
-          </div>
-          <div>
-            <div class="w-full h-max justify-center bg-grey-lighter mt-2">
-              <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
                 <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                 <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                 </svg>
+              </label>
+              <input class="ml-2 py-2" type='file'>
+            </div>
+          </div>
+          <div>
+            <div class="w-64 h-36 justify-center bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 hover:bg-blue-700 hover:text-white overflow-x-hidden">
+              <label class="w-64 flex flex-col items-center px-3 py-2">
                 <span class="mt-2 text-sm leading-normal font-bold">Additional Document 3</span>
-                <input type='file' class="hidden" />
-              </label>
-            </div>
-          </div>
-          <div>
-            <div class="w-full h-max justify-center bg-grey-lighter mt-2">
-              <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
                 <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                 <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                 </svg>
+              </label>
+              <input class="ml-2 py-2" type='file'>
+            </div>
+          </div>
+          <div>
+            <div class="w-64 h-36 justify-center bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 hover:bg-blue-700 hover:text-white overflow-x-hidden">
+              <label class="w-64 flex flex-col items-center px-3 py-2">
                 <span class="mt-2 text-sm leading-normal font-bold">Additional Document 4</span>
-                <input type='file' class="hidden" />
-              </label>
-            </div>
-          </div>
-          <div>
-            <div class="w-full h-max justify-center bg-grey-lighter mt-2">
-              <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
                 <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                 <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                 </svg>
+              </label>
+              <input class="ml-2 py-2" type='file'>
+            </div>
+          </div>
+          <div class="mt-1">
+            <div class="w-64 h-36 justify-center bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 hover:bg-blue-700 hover:text-white overflow-x-hidden">
+              <label class="w-64 flex flex-col items-center px-3 py-2">
                 <span class="mt-2 text-sm leading-normal font-bold">Additional Document 5</span>
-                <input type='file' class="hidden" />
-              </label>
-            </div>
-          </div>
-          <div>
-            <div class="w-full h-max justify-center bg-grey-lighter mt-2">
-              <label class="w-64 flex flex-col items-center px-3 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-700 hover:text-white">
                 <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                 <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                 </svg>
-                <span class="mt-2 text-sm leading-normal font-bold">Additional Document 6</span>
-                <input type='file' class="hidden" />
               </label>
+              <input class="ml-2 py-2" type='file'>
+            </div>
+          </div>
+          <div class="mt-1">
+            <div class="w-64 h-36 justify-center bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 hover:bg-blue-700 hover:text-white overflow-x-hidden">
+              <label class="w-64 flex flex-col items-center px-3 py-2">
+                <span class="mt-2 text-sm leading-normal font-bold">Additional Document 6</span>
+                <svg class="w-8 h-8 mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                </svg>
+              </label>
+              <input class="ml-2 py-2" type='file'>
             </div>
           </div>
         </div>
       </div>
-      <!-- <input type="file" @change="onFileChange">
-      <div id="preview" class="w-10 h-10 flex justify-center">
-        <img :src="passport" />
-      </div> -->
     </form>
     <div class="text-right mr-5">
       <button class="bg-yellow-600 shadow-md h-11 mr-2 text-white px-2 py-1 rounded font-bold mt-6" @click.prevent="prev()">Previous Page</button>
@@ -721,7 +724,7 @@
     </div>
   </div>
   
-  <div v-if="currentstep === 5" class="px-10 py-5 bg-white h-full mt-28">
+  <div v-show="currentstep === 6" class="px-10 py-5 bg-white h-full mt-28">
     <div class="mt-4">
       <div>
         <div><p class="text-lg font-bold text-center bg-gray-500 text-white mt-3 mb-2">BIOMETRICS</p></div>
@@ -988,15 +991,18 @@
 
 <script>
 // import { ref } from 'vue';
+
+import { required, email } from '@vuelidate/validators';
 import Appheader from './components/Appheader';
 export default {
   components:{ Appheader },
   data(){
     return {
-      currentstep:0,
+      currentstep:1,
       selectedtitle:'Select title',
       passport:'',
       signature:'',
+      files:'',
       salarystructure: [
         {date: '2019'},
         {date: '2016'},
@@ -1014,20 +1020,31 @@ export default {
         {name:'Others', value:'5'}
       ],
 
-      registration: [
-        {
-          title:'', firstname:'', middlename:'', gender:'', maritalstatus:'', maidenname:'', placeofbirth:'', dob:'', nationality:'',
-          stateoforigin:'', lgaoforigin:'', otherpfa:'', otherpin:'', pin:'', challenged:'', moi:'', cardnumber:'', bvn:'', nin:'',
-          houseno:'', streetname:'', villagetown:'', countryofresidence:'', stateofresidence:'', lgaofresidence:'', mobilenumber:'',
-          alternatenumber:'', emailaddress:'', sector:'', serviceid:'', underippis:'', structure:'', grade:'', step:'', salary:'',
-          employername:'', employerid:'', employercode:'', dateofretirement:'', dateofemployment:'', dateofappointment:'', servicetransfer:'',
-          currentemployment:'', totalemolument:'', employercont:'', employeecont:'', voluntarycont:'', employerindustry:'', qualification:'',
-          occupation:'', employerbuildingno:'', employerstreet:'', employercountry:'', employerstate:'', employerlga:'', villagetowncity:'',
-          postalcode:'', employercontactno:'', designation:'', noktitle:'', noksurname:'', nokfirstname:'', nokmiddlename:'', nokgender:'',
-          nokrelationship:'', noknumber:'', nokalternatenumber:'', nokemail:'', noknationality:'', nokstateofresidence:'', noklgaofresidence:'',
-          nokvillage:'', nokpostalcode:'', nokhouseno:'', nokstreetname:''
-        }
+      reel:[
+        {structure:'', grade:'', step:'', salary:''}
       ],
+
+      registration: {  
+        title:'', surname:'', firstname:'', middlename:'', gender:'', maritalstatus:'', maidenname:'', placeofbirth:'', dob:'', nationality:'',
+        stateoforigin:'', lgaoforigin:'', otherpfa:'', otherpin:'', pin:'', challenged:'', moi:'', cardnumber:'', bvn:'', nin:'',
+        houseno:'', streetname:'', villagetown:'', countryofresidence:'', stateofresidence:'', lgaofresidence:'', mobilenumber:'',
+        alternatenumber:'', emailaddress:'', sector:'', serviceid:'', underippis:'', structure:'', grade:'', step:'', salary:'',
+        employername:'', employerid:'', employercode:'', dateofretirement:'', dateofemployment:'', dateofappointment:'', servicetransfer:'',
+        currentemployment:'', totalemolument:'', employercont:'', employeecont:'', voluntarycont:'', employerindustry:'', qualification:'',
+        occupation:'', employerbuildingno:'', employerstreet:'', employercountry:'', employerstate:'', employerlga:'', villagetowncity:'',
+        postalcode:'', employercontactno:'', designation:'', noktitle:'', noksurname:'', nokfirstname:'', nokmiddlename:'', nokgender:'',
+        nokrelationship:'', noknumber:'', nokalternatenumber:'', nokemail:'', noknationality:'', nokstateofresidence:'', noklgaofresidence:'',
+        nokvillage:'', nokpostalcode:'', nokhouseno:'', nokstreetname:''
+      },
+    }
+  },
+  validations:{
+    firstname: {
+      required,
+    },
+    email: {
+      required,
+      email
     }
   },
   methods: {
@@ -1036,9 +1053,6 @@ export default {
     },
     prev(){
       this.currentstep--
-    },
-    fileselected(e){
-      this.file = e.target.file[0].name
     },
     onFileChangepassport(event) {    	   
       const data = URL.createObjectURL(event.target.files[0]);
@@ -1049,10 +1063,10 @@ export default {
       this.signature = data;
     },
     add(){
-      this.registration.push({structure:'', grade:'', step:'', salary:''})
+      this.reel.push({structure:'', grade:'', step:'', salary:''})
     },
     remove(index){
-      this.registration.splice(index, 1)
+      this.reel.splice(index, 1)
     }
   },
 }
@@ -1160,12 +1174,12 @@ export default {
 }
 
 .progressbar{
-  counter-reset: step;
+  counter-reset: currentstep;
 }
 
 .progressbar li:before{
-  content:counter(step);
-  counter-increment: step;
+  content:counter(currentstep);
+  counter-increment: currentstep;
   width: 30px;
   height: 30px;
   border: 2px solid #bebebe;
