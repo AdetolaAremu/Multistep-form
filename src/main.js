@@ -1,11 +1,5 @@
-import { createApp } from 'vue';
-import App from './App.vue';
-import './assets/style.css';
-
-// import Vuelidate from 'vuelidate'
-
-// const app = createApp(Vuelidate)
-// app.use(Vuelidate)
-
+import { createApp } from 'vue'
+import App from './App.vue'
+import './index.css'
 
 createApp(App).mount('#app')
