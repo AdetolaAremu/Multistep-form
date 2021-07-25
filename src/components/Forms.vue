@@ -11,6 +11,8 @@
     </ul>
   </div>
 
+  <Formodal />
+
   <div v-show="currentstep === 1" class="px-20 py-5 mt-28 bg-white h-full">    
     <form @submit="checkform">
       <div class="grid grid-cols-1 pl-8 -ml-14 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -57,6 +59,7 @@
             <option>Female</option>
           </select>
         </div>
+        
         <div class="mt-3">
           <label class="mr-1 block font-semibold">Marital Staus <span class="font-bold text-lg text-red-600"> *</span></label>
           <select class="rounded border-gray-500 border w-64 p-2 
@@ -1239,8 +1242,16 @@
 </template>
 
 <script>
+// import { ref } from '@vue/reactivity';
+import Formodal from '../components/Formodal';
 export default {
-  components: {  },
+  components: { Formodal },
+  // setup() {
+  //   const isModal1Open = ref(true);
+  //   const isModal2Open = ref(false);
+  //   return { isModal1Open, isModal2Open };
+  // },
+
   data(){
     return {
       currentstep:1,
