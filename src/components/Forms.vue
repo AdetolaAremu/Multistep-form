@@ -233,7 +233,8 @@
             focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" 
             v-model="registration.countryofresidence"
           >
-            <option selected value="">Nigeria</option>
+            <option selected value="">Select Country</option>
+            <option>Nigeria</option>
             <option>Niger</option>
           </select>
         </div>
@@ -243,7 +244,8 @@
             focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" 
             v-model="registration.stateofresidence"
           >
-            <option selected value="">Abia</option>
+            <option selected value="">Select State</option>
+            <option>Abia</option>
             <option value="2">Adamawa</option>
           </select>
         </div>
@@ -253,7 +255,8 @@
             focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" 
             v-model="registration.lgaofresidence"
           >
-            <option selected value="">Surulere</option>
+            <option selected value="">Select LGA</option>
+            <option>Surulere</option>
             <option value="2">Shomolu</option>
           </select>
         </div>
@@ -345,21 +348,21 @@
               <div class="mt-2 lg:mt-0">
                 <label class="block font-semibold">Grade Level</label>
                 <input type="text" class="border border-gray-500 rounded w-9/12 lg:w-52 p-2 focus:ring-1 focus:outline-none
-                  focus:ring-indigo-500 focus:border-indigo-500" 
+                  focus:ring-indigo-500 focus:border-indigo-500" placeholder="Enter Grade Level"
                   v-model="register.grade"
                 >
               </div>
               <div class="mt-2 lg:mt-0">
                 <label class="block font-semibold">Grade Step</label>
                 <input type="text" class="border border-gray-500 rounded w-9/12 lg:w-52 p-2 focus:ring-1 focus:outline-none
-                  focus:ring-indigo-500 focus:border-indigo-500" 
+                  focus:ring-indigo-500 focus:border-indigo-500" placeholder="Enter Grade Step"
                   v-model="register.step"
                 >
               </div>
               <div class="mt-2 lg:mt-0">
                 <label class="block font-semibold">Salary</label>
                 <input type="text" class="border border-gray-500 rounded w-9/12 lg:w-52 p-2 focus:ring-1 focus:outline-none
-                  focus:ring-indigo-500 focus:border-indigo-500" 
+                  focus:ring-indigo-500 focus:border-indigo-500" placeholder="Enter Salary"
                   v-model="register.salary"
                 >
               </div>
@@ -524,7 +527,8 @@
                 focus:ring-indigo-500 focus:border-indigo-500" 
               v-model="registration.employercountry"
             >
-              <option value="">Nigeria</option>
+              <option selected value="">Select Country</option>
+              <option>Nigeria</option>
               <option>Australia</option>
             </select>
           </div>
@@ -534,7 +538,8 @@
                 focus:ring-indigo-500 focus:border-indigo-500" 
               v-model="registration.employerstate"
             >
-              <option value="">Lagos</option>
+              <option selected value="">Select State</option>
+              <option value="1">Lagos</option>
               <option value="2">Abia</option>
             </select>
           </div>
@@ -544,7 +549,8 @@
                 focus:ring-indigo-500 focus:border-indigo-500"
               v-model="registration.employerlga"
             >
-              <option value="">Somolu</option>
+              <option selected value="">Select LGA</option>
+              <option value="1">Somolu</option>
               <option value="2">Ikorodu</option>
             </select>
           </div>
@@ -674,7 +680,8 @@
             focus:ring-indigo-500 focus:border-indigo-500" 
             v-model='registration.noknationality'
           >
-            <option value="">Nigeria</option>
+            <option selected value="">Select NOK Country</option>
+            <option>Nigeria</option>
             <option>Austria</option>
             <option>Australia</option>
           </select>
@@ -685,7 +692,8 @@
             focus:ring-indigo-500 focus:border-indigo-500" 
             v-model='registration.nokstateofresidence'
           >
-            <option value="">Abia</option>
+            <option selected value="">Select NOK State</option>
+            <option>Abia</option>
             <option>Adamawa</option>
             <option>Akwa-Ibom</option>
           </select>
@@ -696,7 +704,8 @@
             focus:ring-indigo-500 focus:border-indigo-500" 
             v-model='registration.noklgaofresidence'
           >
-            <option disabled value="">Amuwo Odofin</option>
+            <option selected value="">Select NOK LGA</option>
+            <option>Amuwo Odofin</option>
             <option>Ikorodu</option>
             <option>Kosofe</option>
           </select>
@@ -816,7 +825,7 @@
           </div>
         </div>
       </div>
-      <div v-if="registration.sector !== 'Private'" class="mt-5">
+      <div v-if="registration.sector !== 'Private'" class="mt-5 px-11 ml-2 grid">
         <div><p class="font-bold text-center mb-2 sm:text-sm md:text-sm lg:text-lg">Public Sector participant, upload salary structure as stated in the upload boxes below</p></div>
         <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           <div>
@@ -889,7 +898,7 @@
       </div>
       <div class="mt-5">
         <div><p class="font-bold text-center mb-2 sm:text-sm md:text-sm lg:text-lg">Kindly upload additional/supporting documents here (Optional)</p></div>
-        <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        <div class="mt-5 px-11 ml-2 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <div class="w-64 h-36 justify-center bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 hover:bg-blue-700 hover:text-white overflow-x-hidden">
               <label class="w-64 flex flex-col items-center px-3 py-2">
@@ -1212,7 +1221,7 @@
           <div><p class="bg-gray-700 text-lg font-bold text-center text-white mt-3 mb-2">ACKNOWLEDGEMENT</p></div>
           <div class="mt-3">
             <label class="block font-bold">Acknowledgement/Cerification</label>
-            <textarea cols="30" rows="3" disabled class="border border-gray-500 w-full rounded bg-gray-100">I (insert name) hereby certify that the information provided or as confirmed by me in this form is true and correct. I further consent and authorize Nigeria Inter-Bank Settlement System Plc and National Identity Management Commission to release my BVNand or NIN information (as may be required) to the National Pension Commission(Pencom) for the maintenance and operation of my account</textarea>
+            <textarea cols="30" rows="3" disabled class="border border-gray-500 w-full rounded bg-gray-100">I (insert name) hereby certify that the information provided or as confirmed by me in this form is true and correct. I further consent and authorize Nigeria Inter-Bank Settlement System Plc and National Identity Management Commission to release my BVNand or NIN information (as may be required) to the National Pension Commission(Pencom) for the maintenance and operation of my account.</textarea>
             <div>
               <input type="checkbox" class="checked:bg-blue-600 checked:border-transparent rounded h-4 w-4">
               <label class="ml-3 font-bold">I Agree</label>
